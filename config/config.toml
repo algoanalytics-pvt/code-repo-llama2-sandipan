@@ -1,0 +1,29 @@
+[emojis]
+user_emoji =  "🙋‍♂️" # "./ui_assets/images/man.png"
+chatbot_emoji = "🤖" # "./ui_assets/images/robot.png"
+
+# Define CSS styles for user and chatbot messages
+[chatbot_style]
+user_message_style = """
+    background-color: #D5F5E3;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: right;
+    justify-content: flex-end;
+    font-size: 18px; 
+    color: black;
+"""
+
+chatbot_message_style = """
+    background-color: #E5E8E8;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: block;
+    text_align: left;
+    font-size: 18px; 
+    color: black;
+    justify-content: flex-start;
+"""

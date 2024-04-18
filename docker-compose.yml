@@ -1,0 +1,17 @@
+version: '3' # update to version 2 for ubuntu 16.04
+services:
+  
+
+  app:
+    build:
+      context: ./
+    container_name: code_repository_chatbot  # Set a custom container name
+    image: code_repository_chatbot:latest        # Set a custom image name
+    ports:
+      - '9030:8501' # port mapping, connect with harish for port assignment 
+    networks:
+      - code_repository_chatbot_app_network
+    restart: always  
+
+networks:
+  code_repository_chatbot_app_network:

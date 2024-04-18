@@ -1,0 +1,156 @@
+/* Hide bult in header section */
+[data-testid="stHeader"]{
+    height: 0.1rem ;
+    background:rgba(255, 255, 255, 0)
+}
+
+/* Main Page Border layout */
+.main .block-container {
+    padding-top: 1rem;
+    padding-bottom: 0rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    /* background-color: #E1EDFA; */
+}
+
+
+/* App Name Styling */
+/* ------------------------------------------------- */
+
+/* background image */
+/* .background{
+    background-color: blue;
+    
+
+} */
+.title {
+    font-size: 68px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    align-items: center;
+    text-align: center;
+    color: #535050;
+}
+
+.subtitle {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+    color: #535050bd;
+}
+
+
+/* App description */
+.appDescriptioncontainer {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.textHeading{
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    color: #799BE6;
+
+}
+
+.textDescription{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: center;
+    color: #6b6767;
+
+}
+
+
+/* dashboard */
+.dashboardText{
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 50;
+    line-height: normal;
+    text-align: center;
+    color: #706f6e;
+}
+
+/* Main Page Border layout */
+.main .block-container {
+    padding-top: 0.1rem;
+    padding-bottom: 0rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    /* background-color: #E1EDFA; */
+
+    
+}
+
+
+.brand_logo_namestyle {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.app-name {
+    font-size: 24px; /* Set your desired font size */
+    /* font-weight: bold; */
+    color: #535050; /* Set your desired text color */
+
+   
+    /* Add a 3D text effect with text-shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+
+}
+
+/* styling the  Section tabs */
+button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] > p {
+    font-size: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    /* color:grey;   */
+    align-items: center;
+    border-top-left-radius: 5px;
+    
+  }
+/* styling the  Section tabs  when selected*/
+button[data-baseweb="tab"][aria-selected="true"] {
+background-color: #799BE6; /* Replace #YOUR_SELECTED_COLOR with your preferred color */
+color: white !important; /* Replace #YOUR_SELECTED_TEXT_COLOR with your preferred text color */
+border-top-left-radius: 0px;
+border-top-right-radius: 5px;
+
+}
+
+/* Hover style for the text of tabs */
+button[data-baseweb="tab"]:hover > div[data-testid="stMarkdownContainer"] > p {
+    color: #556B8D !important;  /* Color of the text on hover */
+}
+
+/* line styling */
+.st-ea {
+    background-color: #FFFFFF;
+}
+
+div[data-testid="stExpander"] div[role="button"] p {
+    font-size: 20px;
+   
+    font-family: 'Poppins', sans-serif;
+
+}
+div[data-testid="stMarkdownContainer"] p {
+    font-size: 16px;
+    
+    font-family: 'Poppins', sans-serif;
+}

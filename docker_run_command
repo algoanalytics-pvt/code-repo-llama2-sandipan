@@ -1,0 +1,1 @@
+docker run -p 9030:8501 -d --restart always --name code_repository_chatbot code_repository_chatbot:v.0.0

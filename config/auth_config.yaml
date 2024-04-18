@@ -1,0 +1,12 @@
+credentials:
+  usernames:
+    algodev:
+      name: algodev
+      password: $2b$12$fykKadSNlAWWqin56rHKvuG2aN9USVcRGxHBSHtBk4ZyG2OiSRjmK
+    algouser:
+      name: algouser
+      password: $2b$12$fykKadSNlAWWqin56rHKvuG2aN9USVcRGxHBSHtBk4ZyG2OiSRjmK
+cookie:
+  expiry_days: 1
+  key: algo_llm_app # Must be string
+  name: algo_llm_app

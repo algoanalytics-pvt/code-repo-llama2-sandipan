@@ -1,0 +1,10 @@
+explain the function bubble_sort() in the file bubble_sort.py
+What does the @time_it wrapper do
+explain the working of the partition() function
+Explain the difference between the dfs() function and the bfs() function
+what does the fib() function do
+explain the entire code in the file quick_sort.py
+what is the role of the variable "pivot" in the function partition()
+what is the diffrence between the binary_search() function and the binary_search_recursive() function
+explain the code in merge_sort_final.py using an example
+Can you optimize the code in the shell_sort() function

@@ -1,0 +1,249 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-27 13:58+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: homepage_content.py:23 homepage_content.py:138 app.py:81
+msgid "Codebase Chatbot"
+msgstr ""
+
+#: homepage_content.py:24 homepage_content.py:140
+msgid "Our advisor will help you navigate through complex repositories"
+msgstr ""
+
+#: homepage_content.py:25
+msgid "Powered by Large Language Models (LLM)"
+msgstr ""
+
+#: homepage_content.py:58
+msgid "Want to easily catch up on current state of a program?"
+msgstr ""
+
+#: homepage_content.py:59
+msgid ""
+"Meet our LLM-powered chatbot! Get quick answers about any public GitHub "
+"Repository. Just input the repository link, and our AI interprets and "
+"responds accurately."
+msgstr ""
+
+#: homepage_content.py:92 homepage_content.py:141
+msgid "Intelligent Code Interpretation"
+msgstr ""
+
+#: homepage_content.py:93 homepage_content.py:142
+msgid ""
+"Say farewell to confusion! Our cutting-edge chatbot effortlessly comprehends "
+"any mainstream language, including python, C++, and java. Minimize reading "
+"and wasted time as our chatbot takes care of understanding code, and letting "
+"you have an interactive explanation."
+msgstr ""
+
+#: homepage_content.py:97 homepage_content.py:144
+msgid "Precise and Summarized Responses"
+msgstr ""
+
+#: homepage_content.py:98 homepage_content.py:145
+msgid ""
+"No more lengthy explanations. Our chatbot responds with precision and "
+"clarity, distilling complex information into easily understandable "
+"summaries. Receive quick and accurate answers, enhancing your experience and "
+"confidence in your work."
+msgstr ""
+
+#: homepage_content.py:102 homepage_content.py:148
+msgid "Contextually Aware"
+msgstr ""
+
+#: homepage_content.py:103 homepage_content.py:149
+msgid ""
+"Our chatbot is smart enough to recognize when questions are out of context "
+"or require more information. It engages in interactive conversations, "
+"guiding users to provide the necessary details for accurate responses. This "
+"ensures that every interaction is productive and meaningful."
+msgstr ""
+
+#: homepage_content.py:112
+msgid "For more information please contact us at"
+msgstr ""
+
+#: homepage_content.py:555
+msgid "Try Demo"
+msgstr ""
+
+#: homepage_content.py:568
+msgid "Address"
+msgstr ""
+
+#: homepage_content.py:569
+msgid ""
+"Alacrity India Innovation Centre, Ideas to Impacts Building.\n"
+"                \n"
+"Pallod Farm Lane 3, \n"
+"\n"
+" Near Vijay Sales, \n"
+"\n"
+" Baner Road, Pune - 411045"
+msgstr ""
+
+#: homepage_content.py:575
+msgid "Email"
+msgstr ""
+
+#: homepage_content.py:576
+msgid "info@algoanalytics.com"
+msgstr ""
+
+#: homepage_content.py:602
+msgid "Social Presence"
+msgstr ""
+
+#: app.py:119
+msgid "Overview"
+msgstr ""
+
+#: app.py:119
+msgid "Demo"
+msgstr ""
+
+#: app.py:119
+msgid "Contact us"
+msgstr ""
+
+#: app.py:225
+msgid "LLM Dashboard"
+msgstr ""
+
+#: dashboard.py:64
+msgid "Login"
+msgstr ""
+
+#: dashboard.py:73
+#, python-brace-format
+msgid "Welcome *{name}*"
+msgstr ""
+
+#: dashboard.py:74
+msgid "Logout"
+msgstr ""
+
+#: dashboard.py:77
+msgid "Username/password is incorrect"
+msgstr ""
+
+#: dashboard.py:87
+msgid "Code Viewer"
+msgstr ""
+
+#: dashboard.py:93
+msgid "Choose Language"
+msgstr ""
+
+#: dashboard.py:93
+msgid "Python"
+msgstr ""
+
+#: dashboard.py:93
+msgid "C++"
+msgstr ""
+
+#: dashboard.py:93
+msgid "Java"
+msgstr ""
+
+#: dashboard.py:97
+msgid "Choose a python file to display"
+msgstr ""
+
+#: dashboard.py:101
+msgid "No Python files to display."
+msgstr ""
+
+#: dashboard.py:104
+msgid "Choose a C++ file to display"
+msgstr ""
+
+#: dashboard.py:108
+msgid "No C++ files to display."
+msgstr ""
+
+#: dashboard.py:111
+msgid "Choose a Java file to display"
+msgstr ""
+
+#: dashboard.py:115
+msgid "No Java files to display."
+msgstr ""
+
+#: dashboard.py:121
+msgid "Welcome to Our LLM Powered Chatbot!"
+msgstr ""
+
+#: dashboard.py:127
+msgid "Instructions"
+msgstr ""
+
+#: dashboard.py:130
+msgid ""
+"<h11>Here are some instructions on how to use the app!</h11>\n"
+"                                <ol>\n"
+"                                    <li>The Repository provided has been "
+"sorted by languages.</li>\n"
+"                                    <li>You can use the dropdowns in the "
+"Code Viewer to choose a language and a file to displayed.</li>\n"
+"                                    <li>To chat with the agent please head "
+"to the Chatbox.</li>\n"
+"                                    <li>Please <u>provide the full names of "
+"the files or functions</u> in a query for the best responses.</li>\n"
+"                                    <li>Please Note: The sample questions "
+"are part of a Demo verison of the app with pre-computed responses.</li>\n"
+"                                </ol>\n"
+"                            "
+msgstr ""
+
+#: dashboard.py:150
+msgid "Select a sample question"
+msgstr ""
+
+#: dashboard.py:152
+msgid "Show answer"
+msgstr ""
+
+#: dashboard.py:170
+msgid ""
+"For Login details or Live Interactive Demo, please contact us at "
+"info@algoanalytics.com"
+msgstr ""
+
+#: dashboard.py:173
+msgid "Chat with our LLM-Powered Code Agent"
+msgstr ""
+
+#: dashboard.py:174
+msgid "Answer"
+msgstr ""
+
+#: dashboard.py:188
+msgid "Generating your answer ✨"
+msgstr ""
+
+#: dashboard.py:190
+msgid "Generating Answer"
+msgstr ""
+
+#: dashboard.py:193
+msgid "Not able to find anything. Please ask another question."
+msgstr ""

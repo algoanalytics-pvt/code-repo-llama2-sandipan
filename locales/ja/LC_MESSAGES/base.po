@@ -1,0 +1,252 @@
+#
+msgid ""
+msgstr ""
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: homepage_content.py:23 homepage_content.py:138 app.py:81
+msgid "Codebase Chatbot"
+msgstr "コードベースチャットボット"
+
+#: homepage_content.py:24 homepage_content.py:140
+msgid "Our advisor will help you navigate through complex repositories"
+msgstr "私たちのアドバイザーは、複雑なリポジトリをナビゲートするのに役立ちます"
+
+#: homepage_content.py:25
+msgid "Powered by Large Language Models (LLM)"
+msgstr "大規模な言語モデル（LLM）を搭載"
+
+#: homepage_content.py:58
+msgid "Want to easily catch up on current state of a program?"
+msgstr "プログラムの現在の状態に簡単に追いつきたいですか？"
+
+#: homepage_content.py:59
+msgid ""
+"Meet our LLM-powered chatbot! Get quick answers about any public GitHub "
+"Repository. Just input the repository link, and our AI interprets and "
+"responds accurately."
+msgstr ""
+"LLM駆動のチャットボットに会いましょう！パブリックGithubリポジトリについて簡単に回答してください。リポジトリリンクを入力するだけで、AIは解釈して正確に応答します。"
+
+#: homepage_content.py:92 homepage_content.py:141
+msgid "Intelligent Code Interpretation"
+msgstr "インテリジェントコード解釈"
+
+#: homepage_content.py:93 homepage_content.py:142
+msgid ""
+"Say farewell to confusion! Our cutting-edge chatbot effortlessly comprehends"
+" any mainstream language, including python, C++, and java. Minimize reading "
+"and wasted time as our chatbot takes care of understanding code, and letting"
+" you have an interactive explanation."
+msgstr ""
+"混乱に別れを告げる！最先端のチャットボットは、Python、C "
+"++、Javaなどの主流の言語を簡単に理解しています。Chatbotがコードを理解し、インタラクティブな説明を得ることができるので、読み取りと無駄な時間を最小限に抑えます。"
+
+#: homepage_content.py:97 homepage_content.py:144
+msgid "Precise and Summarized Responses"
+msgstr "正確で要約された応答"
+
+#: homepage_content.py:98 homepage_content.py:145
+msgid ""
+"No more lengthy explanations. Our chatbot responds with precision and "
+"clarity, distilling complex information into easily understandable "
+"summaries. Receive quick and accurate answers, enhancing your experience and"
+" confidence in your work."
+msgstr ""
+"これ以上長い説明はありません。チャットボットは精度と明確さで応答し、複雑な情報を簡単に理解できる要約に蒸留します。迅速かつ正確な回答を受け取り、あなたの仕事に対する経験と自信を高めます。"
+
+#: homepage_content.py:102 homepage_content.py:148
+msgid "Contextually Aware"
+msgstr "文脈的に認識"
+
+#: homepage_content.py:103 homepage_content.py:149
+msgid ""
+"Our chatbot is smart enough to recognize when questions are out of context "
+"or require more information. It engages in interactive conversations, "
+"guiding users to provide the necessary details for accurate responses. This "
+"ensures that every interaction is productive and meaningful."
+msgstr ""
+"私たちのチャットボットは、質問が文脈から外れているとき、またはより多くの情報が必要な場合を認識するのに十分賢いです。インタラクティブな会話に従事し、正確な応答に必要な詳細を提供するようユーザーに指導します。これにより、すべての相互作用が生産的で意味のあるものになります。"
+
+#: homepage_content.py:112
+msgid "For more information please contact us at"
+msgstr "詳細については、までお問い合わせください"
+
+#: homepage_content.py:555
+msgid "Try Demo"
+msgstr "デモを試してみてください"
+
+#: homepage_content.py:568
+msgid "Address"
+msgstr "住所"
+
+#: homepage_content.py:569
+msgid ""
+"Alacrity India Innovation Centre, Ideas to Impacts Building.\n"
+"                \n"
+"Pallod Farm Lane 3, \n"
+"\n"
+" Near Vijay Sales, \n"
+"\n"
+" Baner Road, Pune - 411045"
+msgstr ""
+"Alacrity India Innovation Center、Ideas to Imfactime Building。\n"
+"                \n"
+"パロドファームレーン3、\n"
+"\n"
+" 近くのヴィジェイセールス、\n"
+"\n"
+" バナーロード、プネー-411045"
+
+#: homepage_content.py:575
+msgid "Email"
+msgstr "Eメール"
+
+#: homepage_content.py:576
+msgid "info@algoanalytics.com"
+msgstr "info@algoanalytics.com"
+
+#: homepage_content.py:602
+msgid "Social Presence"
+msgstr "社会的存在"
+
+#: app.py:119
+msgid "Overview"
+msgstr "概要"
+
+#: app.py:119
+msgid "Demo"
+msgstr "デモ"
+
+#: app.py:119
+msgid "Contact us"
+msgstr "お問い合わせ"
+
+#: app.py:225
+msgid "LLM Dashboard"
+msgstr "LLMダッシュボード"
+
+#: dashboard.py:64
+msgid "Login"
+msgstr "ログイン"
+
+#: dashboard.py:73
+#, python-brace-format
+msgid "Welcome *{name}*"
+msgstr "ようこそ *{名前} *"
+
+#: dashboard.py:74
+msgid "Logout"
+msgstr "ログアウト"
+
+#: dashboard.py:77
+msgid "Username/password is incorrect"
+msgstr "ユーザー名/パスワードが正しくありません"
+
+#: dashboard.py:87
+msgid "Code Viewer"
+msgstr "コードビューアー"
+
+#: dashboard.py:93
+msgid "Choose Language"
+msgstr "言語を選択"
+
+#: dashboard.py:93
+msgid "Python"
+msgstr "Python"
+
+#: dashboard.py:93
+msgid "C++"
+msgstr "C ++"
+
+#: dashboard.py:93
+msgid "Java"
+msgstr "Java"
+
+#: dashboard.py:97
+msgid "Choose a python file to display"
+msgstr "表示するPythonファイルを選択します"
+
+#: dashboard.py:101
+msgid "No Python files to display."
+msgstr "表示するPythonファイルはありません。"
+
+#: dashboard.py:104
+msgid "Choose a C++ file to display"
+msgstr "表示するC ++ファイルを選択します"
+
+#: dashboard.py:108
+msgid "No C++ files to display."
+msgstr "表示するC ++ファイルはありません。"
+
+#: dashboard.py:111
+msgid "Choose a Java file to display"
+msgstr "表示するJavaファイルを選択します"
+
+#: dashboard.py:115
+msgid "No Java files to display."
+msgstr "表示するJavaファイルはありません。"
+
+#: dashboard.py:121
+msgid "Welcome to Our LLM Powered Chatbot!"
+msgstr "LLM搭載のチャットボットへようこそ！"
+
+#: dashboard.py:127
+msgid "Instructions"
+msgstr "説明書"
+
+#: dashboard.py:130
+msgid ""
+"<h11>Here are some instructions on how to use the app!</h11>\n"
+"                                <ol>\n"
+"                                    <li>The Repository provided has been sorted by languages.</li>\n"
+"                                    <li>You can use the dropdowns in the Code Viewer to choose a language and a file to displayed.</li>\n"
+"                                    <li>To chat with the agent please head to the Chatbox.</li>\n"
+"                                    <li>Please <u>provide the full names of the files or functions</u> in a query for the best responses.</li>\n"
+"                                    <li>Please Note: The sample questions are part of a Demo verison of the app with pre-computed responses.</li>\n"
+"                                </ol>\n"
+"                            "
+msgstr ""
+"<h11>アプリの使用方法に関するいくつかの指示を次に示します！</h11>\n"
+"                                <ol>\n"
+"                                    <li>提供されたリポジトリは言語でソートされています。</li>\n"
+"                                    <li>コードビューアのドロップダウンを使用して、表示する言語とファイルを選択できます。</li>\n"
+"                                    <li>エージェントとチャットするには、チャットボックスにアクセスしてください。</li>\n"
+"                                    <li>お願い\n"
+"                                    <li>注意：サンプルの質問は、事前に計算された回答を伴うアプリのデモの裏付けの一部です。</li>\n"
+"                                </ol>"
+
+#: dashboard.py:150
+msgid "Select a sample question"
+msgstr "サンプルの質問を選択してください"
+
+#: dashboard.py:152
+msgid "Show answer"
+msgstr "答えを表示します"
+
+#: dashboard.py:170
+msgid ""
+"For Login details or Live Interactive Demo, please contact us at "
+"info@algoanalytics.com"
+msgstr "ログインの詳細またはライブインタラクティブなデモについては、info@algoanalytics.comまでお問い合わせください"
+
+#: dashboard.py:173
+msgid "Chat with our LLM-Powered Code Agent"
+msgstr "LLM駆動のコードエージェントとチャットします"
+
+#: dashboard.py:174
+msgid "Answer"
+msgstr "答え"
+
+#: dashboard.py:188
+msgid "Generating your answer ✨"
+msgstr "あなたの答えを生成します✨"
+
+#: dashboard.py:190
+msgid "Generating Answer"
+msgstr "回答を生成します"
+
+#: dashboard.py:193
+msgid "Not able to find anything. Please ask another question."
+msgstr "何も見つけることができません。別の質問をしてください。"

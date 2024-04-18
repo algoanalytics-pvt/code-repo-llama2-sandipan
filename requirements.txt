@@ -1,0 +1,33 @@
+
+openai==0.27.8
+langchain==0.0.266
+
+pypdf==3.15.2
+# pinecone-client==2.2.2
+python-dotenv==1.0.0
+PyYAML==6.0.1
+
+streamlit
+streamlit-authenticator
+streamlit-lottie
+streamlit-option_menu
+toml
+#transformers
+# nltk
+pdfminer.six
+numpy==1.23.5
+click
+faiss-cpu
+tiktoken
+
+googletrans==4.0.0-rc1
+polib
+python-gettext
+
+# REQUIREMENTS FOR LOCAL MODEL 
+llama-cpp-python==0.1.83
+InstructorEmbedding
+sentence-transformers
+huggingface_hub
+transformers
+auto-gptq==0.2.2
