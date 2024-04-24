@@ -1,0 +1,6 @@
+opencv-python==4.8.0.76
+scikit-learn==1.0.2
+scikit-image==0.19.1
+pymongo==4.3.2
+pandas
+numpy

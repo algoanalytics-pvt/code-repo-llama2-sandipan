@@ -1,0 +1,117 @@
+.report-alert-modal-container {
+    min-height: 200px;
+
+    .add-margin {
+        margin-bottom: 34px;
+    }
+
+    img.report-alert-camera-img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+
+.alert-report {
+
+    .desktop-blue-container {
+
+        margin: 10px 0;
+        margin-left: 20px;
+        background-color: #0a57eb;
+        // max-width: 560px; //calcluted = 176 x 2 + 50
+        max-width: 260px;
+        border-radius: 50px;
+        display: flex;
+
+        .items-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 50px;
+            // max-width: 500px;
+            // min-width: 500px;
+
+            max-width: 200px;
+            min-width: 200px;
+
+            .each-item {
+                border-radius: 60px;
+                cursor: pointer;
+                background-color: #fff;
+
+                .inner-content {
+                    max-width: 200px;
+                    min-width: 200px;
+                    padding: 12px 0px;
+
+                    p {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+        }
+
+        .search-Icon-item {
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // font-size: 2rem !important;
+            cursor: pointer;
+            // max-width: 50px;
+            // min-width: 50px;
+            max-width: 50px;
+            min-width: 50px;
+        }
+
+    }
+
+    @media only screen and (max-width: 600px) {
+        .desktop-blue-container {
+            display: none;
+        }
+
+
+    }
+
+    .graph-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 300px;
+        max-height: 300px;
+        width: 100%;
+
+        h6 {
+            margin: 0;
+        }
+    }
+
+    @media only screen and (min-width: 1920px) and (max-width: 1990px) {
+        .model-radius {
+            .MuiPaper-rounded {
+                border-radius: 12px;
+                overflow: scroll;
+                height: 350px !important;
+            }
+        }
+    }
+
+    @media only screen and (min-width: 375px) and (max-width: 667px) {
+
+        .MuiTypography-root {
+            margin: 0;
+            font-family: Inter, sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.5;
+            padding: 16px;
+            overflow: scroll;
+        }
+    }
+
+}

@@ -12,7 +12,7 @@ from langchain_community.document_loaders.generic import GenericLoader
 from langchain_community.document_loaders.parsers import LanguageParser
 from langchain_community.document_loaders.parsers.txt import TextParser
 
-OPENAI_API_KEY = ""
+OPENAI_API_KEY = "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"
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 # Initialize logging
 logging.basicConfig(level=logging.INFO)
@@ -77,7 +77,7 @@ def split_documents(documents: List) -> Tuple[List, List]:
 # text_documents, python_documents = split_documents(documents)
 
 pyloader = GenericLoader.from_filesystem(
-    path = "data/algorithms",
+    path = "data",
     glob="**/[!.]*",
     suffixes=[".py"],
     parser=LanguageParser(language=Language.PYTHON, parser_threshold=0),
@@ -95,7 +95,7 @@ python_documents = pyloader.load()
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=512, chunk_overlap=50)
 python_splitter = RecursiveCharacterTextSplitter.from_language(
-    language=Language.PYTHON, chunk_size=512, chunk_overlap=50
+    language=Language.PYTHON, chunk_size=1024, chunk_overlap=100
 )
 
 # texts = text_splitter.split_documents(text_documents)
@@ -123,6 +123,7 @@ print('number of chunks',len(texts))
 # CREATE EMBEDDINGS USING OPENAI TEXT-EMBEDINGS-SMALL
 model_name = "text-embedding-3-small"
 embeddings = OpenAIEmbeddings(model=model_name)
-
 vectorstore = FAISS.from_documents(documents=texts, embedding=embeddings)
-np.save(f"openai_text_embeddings_small.npy", vectorstore,allow_pickle=True)
+vectorstore.save_local("C:/Users/ragha/Documents/GitHub/code-repo-llama2-sandipan")
+# np.save(f"openai_text_embeddings_small.npy", vectorstore)
+# print(type(vectorstore))

@@ -1,0 +1,103 @@
+version: "3.8"
+services:
+  react_frontend:
+    networks: 
+      - aksha-net
+    stdin_open: true
+    tty: true
+    ports:
+      - 3000:3000
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WDS_SOCKET_PORT=0
+    #image: dockerhubalgo/aksha_react_frontend:latest
+    build: ./AkshaV2-UIUX/frontend
+    restart: always
+    volumes:
+      - /app/node_modules
+      - ./Aksha:/usr/src/docker-react-sample/src/Aksha
+      - /etc/timezone:/etc/timezone:ro 
+      - /etc/localtime:/etc/localtime:ro
+    env_file:
+      - ./Aksha/app.config
+
+
+  node_backend:
+    networks: 
+      - aksha-net
+    #image: dockerhubalgo/aksha_node_backend:latest
+    build: ./AkshaV2-UIUX/backend
+    restart: always
+    ports:
+      - 5000:5000
+    depends_on:
+      - mongodb
+    volumes:
+      - /backend/node_modules
+      - ./Aksha:/backend/Aksha
+      - /etc/timezone:/etc/timezone:ro 
+      - /etc/localtime:/etc/localtime:ro
+    #  - ./labels.txt:/backend/Aksha/labels.txt
+    environment:
+      DATABASE: mongodb://mongo:mongo@mongodb/Aksha?authSource=admin&tls=false
+
+
+  service_api:
+    container_name: API_SERVICE
+    networks: 
+      - aksha-net
+    restart: always
+    #image: dockerhubalgo/aksha_service:latest
+    build: ./ServiceAPI
+    volumes:
+      - ./Aksha:/Aksha_Pipeline/Aksha
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "4000:4000"
+
+
+  mongodb:
+    networks: 
+      - aksha-net
+    image : dockerhubalgo/aksha_database:latest
+    container_name: mongodb
+    hostname: mongodb
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MONGO_INITDB_ROOT_USERNAME=mongo
+      - MONGO_INITDB_ROOT_PASSWORD=mongo
+      - MONGO_INITDB_DATABASE=Aksha
+      - MONGO_REPLICA_SET_NAME=rs0
+    volumes:
+      - ./Aksha/backup:/data/db
+      - /etc/timezone:/etc/timezone:ro 
+      - /etc/localtime:/etc/localtime:ro
+
+    ports:
+      - 27017:27017
+    healthcheck:
+      test: test $$(echo "rs.initiate().ok || rs.status().ok" | mongo -u $${MONGO_INITDB_ROOT_USERNAME} -p $${MONGO_INITDB_ROOT_PASSWORD} --quiet) -eq 1
+      interval: 10s
+      start_period: 30s
+    command: "--bind_ip_all --keyFile keyfile --replSet rs0"
+
+
+  anomaly_trainer:
+    networks: 
+      - aksha-net
+    restart: always
+    image: dockerhubalgo/anomaly-trainer:latest
+    #build: ./Anomaly_model_training
+    volumes:
+      - ./Aksha:/Aksha_Anomaly_Model_Trainer/Aksha
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  mongodb4_data:
+  
+networks:
+  aksha-net:
+    name: aksha-net
+    driver: bridge

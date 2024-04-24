@@ -1,0 +1,10 @@
+opencv-python==4.8.0.76
+scikit-learn==1.0.2
+scikit-image==0.19.1
+shapely==1.8.5.post1
+pymongo==4.3.2
+onnxruntime==1.13.1
+pandas
+imgkit
+azure.storage.blob
+pydrive

@@ -1,0 +1,106 @@
+.profile-model {
+  min-width: 600px;
+  padding: 1rem;
+  .userInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img {
+      max-width: 54px;
+      min-width: 54px;
+      margin-right: 1rem;
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: bold;
+      color: #03122e;
+    }
+    p {
+      font-size: 14px;
+      color: #03122e;
+    }
+    .flex-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .close-icon {
+      background-color: #e8edfc;
+    }
+  }
+
+  .flex-main-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+
+    .information {
+      h2 {
+        font-size: 22px;
+        font-weight: 800;
+        color: #03122e;
+      }
+      input {
+        margin-top: 1rem;
+        padding-left: 2rem;
+        &:focus {
+          border-color: #ced4da !important;
+          outline: 0;
+          box-shadow: unset !important;
+        }
+      }
+    }
+    .change-password {
+      h2 {
+        font-size: 22px;
+        font-weight: 800;
+        color: #03122e;
+      }
+      input {
+        margin-top: 1rem;
+        padding-left: 2rem;
+        &:focus {
+          border-color: #ced4da !important;
+          outline: 0;
+          box-shadow: unset !important;
+        }
+      }
+    }
+  }
+
+  .flex-input {
+    position: relative;
+  }
+
+  .pencil-icon {
+    position: absolute;
+    z-index: 9;
+    top: 7px;
+    right: 12px;
+    color: #979797;
+  }
+
+  .lockIcon {
+    position: absolute;
+    top: 7px;
+    z-index: 90;
+    left: 5px;
+    color: #979797;
+  }
+}
+.flex-btn-pass {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  .btn-primary {
+    width: 9rem;
+    height: 3.7rem;
+  }
+  .btn-reset-pass {
+    border: 1px solid #3c6efd;
+    height: 3.7rem;
+    width: 12rem;
+    color: #0a57eb;
+  }
+}

@@ -1,0 +1,9 @@
+FROM python:3.8.2-slim AS build
+RUN apt-get update && apt-get install -y tzdata ffmpeg libsm6 libxext6 docker.io
+ENV TZ=Asia/Kolkata
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+WORKDIR /Aksha_Pipeline
+COPY requirements.txt ./
+RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
+COPY main.py insight.py create_input_video.py output_video.py store_reference_img.py ./
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "4000"]
