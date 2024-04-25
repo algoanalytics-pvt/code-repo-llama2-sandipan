@@ -1,7 +1,7 @@
 # Import section
 import numpy as np
 import streamlit as st
-from langchain.chat_models import ChatAnyscale
+from langchain_community.chat_models import ChatAnyscale
 from langchain.chains import RetrievalQA
 from langchain.llms import HuggingFacePipeline
 from langchain.callbacks.manager import CallbackManager
@@ -95,28 +95,12 @@ def setup_bot_agent():
     final_embeddings = np.load(f"instructor_embeddings_large.npy", allow_pickle=True)
     vectorstore = final_embeddings.item()
 
-    # model_id = "TheBloke/Llama-2-7B-GGUF"
-    # model_basename = "llama-2-7b.Q4_K_M.gguf"
-    
-    # model_id = "TheBloke/Llama-2-7B-Chat-GGUF"
-    # model_basename = "llama-2-7b-chat.Q4_K_M.gguf"
-
-    # model_id = "TheBloke/Mistral-7B-v0.1-GGUF"
-    # model_basename = "mistral-7b-v0.1.Q8_0.gguf"
-    
     template = """You are a software engineer answering to a senior software engineer, you will use the provided knowledge to answer questions about the code. Think step by step and respond appropriately If you can not answer a question based on 
     the provided context, inform the user. Do not use any other prior information for answering. Give concise but fully explained answers in a bulleted format. Do not narrate the conversation.
     """
-    #     {context}
-    # Question: {question}
-    # Answer:
 
-    # llm = load_model(device_type='cuda', model_id=model_id, model_basename=model_basename, LOGGING=logging)
-
-
-
-    # ANYSCALE_MODEL_NAME = "meta-llama/Llama-2-7b-chat-hf"
-    ANYSCALE_MODEL_NAME = "codellama/CodeLlama-70b-Instruct-hf"
+    ANYSCALE_MODEL_NAME = "meta-llama/Llama-2-7b-chat-hf"
+    # ANYSCALE_MODEL_NAME = "codellama/CodeLlama-70b-Instruct-hf"
     LLM = ChatAnyscale(model_name = ANYSCALE_MODEL_NAME)
    
     retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k":3})

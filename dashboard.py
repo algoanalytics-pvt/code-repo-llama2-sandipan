@@ -162,7 +162,7 @@ def demo_dashboard(_gettext):
                                                 <li>Please <u>provide the full names of the files and functions</u> in a query for the best responses.</li>
                                             </ol>
                                         """)
-
+                                
                             box_colour = "Aliceblue"
                             st.markdown(f"""<div style='background-color: {box_colour}; padding: 10px; border-radius: 5px; width: 100%;text-align: left;'>
                                                 <span style='color: black;'>{help_instructions}</span>
