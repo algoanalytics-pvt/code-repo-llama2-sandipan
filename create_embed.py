@@ -77,21 +77,21 @@ texts.extend(json_splitter.split_json(json_documents))
 texts.extend(text_splitter.split_documents(text_documents))
 print('number of chunks',len(texts))
 
-# Create embeddings FOR INTRUCTOR LARGE
-embeddings = HuggingFaceInstructEmbeddings(
-    model_name="hkunlp/instructor-large",
-    model_kwargs={"device": "cpu"},
-)
+# # Create embeddings FOR INTRUCTOR LARGE
+# embeddings = HuggingFaceInstructEmbeddings(
+#     model_name="hkunlp/instructor-large",
+#     model_kwargs={"device": "cpu"},
+# )
 
-# CREATE EMBEDDINGS FOR BGE LARGE
-model_name = "BAAI/bge-large-en-v1.5"
-model_kwargs = {'device': 'cpu'}
-encode_kwargs = {'normalize_embeddings': True} # set True to compute cosine similarity
-embeddings = HuggingFaceBgeEmbeddings(
-    model_name=model_name,
-    model_kwargs=model_kwargs,
-    encode_kwargs=encode_kwargs,
-)
+# # CREATE EMBEDDINGS FOR BGE LARGE
+# model_name = "BAAI/bge-large-en-v1.5"
+# model_kwargs = {'device': 'cpu'}
+# encode_kwargs = {'normalize_embeddings': True} # set True to compute cosine similarity
+# embeddings = HuggingFaceBgeEmbeddings(
+#     model_name=model_name,
+#     model_kwargs=model_kwargs,
+#     encode_kwargs=encode_kwargs,
+# )
 
 # CREATE EMBEDDINGS USING OPENAI TEXT-EMBEDINGS-SMALL
 model_name = "text-embedding-3-small"
@@ -99,5 +99,5 @@ embeddings = OpenAIEmbeddings(model=model_name)
 
 
 vectorstore = FAISS.from_documents(documents=texts, embedding=embeddings)
-vectorstore.save_local("C:/Users/ragha/Documents/GitHub/code-repo-llama2-sandipan")
+vectorstore.save_local("")
 
