@@ -1,7 +1,7 @@
 from langchain_community.embeddings import LlamaCppEmbeddings, HuggingFaceInstructEmbeddings, HuggingFaceBgeEmbeddings
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain.text_splitter import Language, RecursiveCharacterTextSplitter
+from langchain.text_splitter import Language, RecursiveCharacterTextSplitter,RecursiveJsonSplitter
 import logging
 from typing import List, Tuple
 import os
@@ -11,8 +11,10 @@ import numpy as np
 from langchain_community.document_loaders.generic import GenericLoader
 from langchain_community.document_loaders.parsers import LanguageParser
 from langchain_community.document_loaders.parsers.txt import TextParser
+from langchain_community.document_loaders import JSONLoader
+import glob
 
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = ""
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 # Initialize logging
 logging.basicConfig(level=logging.INFO)
@@ -36,42 +38,6 @@ DOCUMENT_MAP = {
     ".doc": Docx2txtLoader,
 }
 
-def load_documents_simple(source_dir: str, DOCUMENT_MAP: dict) -> List:
-    logging.info(f"Starting to load documents from {source_dir}.")
-    documents = []
-    
-    for root, _, files in os.walk(source_dir):
-        for file_name in files:
-            file_extension = os.path.splitext(file_name)[1]
-            source_file_path = os.path.join(root, file_name)
-            
-            if file_extension in DOCUMENT_MAP.keys():
-                loader_class = DOCUMENT_MAP.get(file_extension)
-                
-                if loader_class:
-                    loader = loader_class(source_file_path)
-                    
-                    try:
-                        document = loader.load()[0]
-                        documents.append(document)
-                    except Exception as e:
-                        logging.error(f"An error occurred while loading {source_file_path}: {e}")
-                        
-    logging.info("Finished loading documents.")
-    return documents
-
-# Utility function to split documents based on their type
-def split_documents(documents: List) -> Tuple[List, List]:
-    logging.info("Starting to split documents.")
-    text_docs, python_docs = [], []
-    for doc in documents:
-        file_extension = os.path.splitext(doc.metadata["source"])[1]
-        if file_extension == ".py":
-            python_docs.append(doc)
-        else:
-            text_docs.append(doc)
-    logging.info("Finished splitting documents.")
-    return text_docs, python_docs
 
 # documents = load_documents_simple(SOURCE_DIRECTORY, DOCUMENT_MAP)
 # text_documents, python_documents = split_documents(documents)
@@ -83,47 +49,55 @@ pyloader = GenericLoader.from_filesystem(
     parser=LanguageParser(language=Language.PYTHON, parser_threshold=0),
 )
 
-# txtloader = GenericLoader.from_filesystem(
-#     path = "data/algorithms",
-#     glob="**/[!.]*",
-#     suffixes=[".txt",".md",],
-#     parser=TextParser,
-# )
-
-# text_documents = txtloader.load()
-python_documents = pyloader.load()
-
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=512, chunk_overlap=50)
-python_splitter = RecursiveCharacterTextSplitter.from_language(
-    language=Language.PYTHON, chunk_size=1024, chunk_overlap=100
+jsonloader = JSONLoader(
+    file_path= glob.glob("data/**/*.json", recursive=True),
+    jq_schema='.'
 )
 
-# texts = text_splitter.split_documents(text_documents)
-# texts.extend(python_splitter.split_documents(python_documents))
+txtloader = GenericLoader.from_filesystem(
+    path = "data",
+    glob="**/[!.]*",
+    suffixes=[".txt",".md",],
+    parser=TextParser,
+)
+
+
+python_documents = pyloader.load()
+json_documents = jsonloader.load()
+text_documents = txtloader.load()
+
+
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=512, chunk_overlap=50)
+python_splitter = RecursiveCharacterTextSplitter.from_language(language=Language.PYTHON, chunk_size=512, chunk_overlap=50)
+json_splitter = RecursiveJsonSplitter(max_chunk_size=300)
+
 
 texts = python_splitter.split_documents(python_documents)
+texts.extend(json_splitter.split_json(json_documents))
+texts.extend(text_splitter.split_documents(text_documents))
 print('number of chunks',len(texts))
 
-# # Create embeddings FOR INTRUCTOR LARGE
-# embeddings = HuggingFaceInstructEmbeddings(
-#     model_name="hkunlp/instructor-large",
-#     model_kwargs={"device": "cpu"},
-# )
+# Create embeddings FOR INTRUCTOR LARGE
+embeddings = HuggingFaceInstructEmbeddings(
+    model_name="hkunlp/instructor-large",
+    model_kwargs={"device": "cpu"},
+)
 
-# # CREATE EMBEDDINGS FOR BGE LARGE
-# model_name = "BAAI/bge-large-en-v1.5"
-# model_kwargs = {'device': 'cpu'}
-# encode_kwargs = {'normalize_embeddings': True} # set True to compute cosine similarity
-# embeddings = HuggingFaceBgeEmbeddings(
-#     model_name=model_name,
-#     model_kwargs=model_kwargs,
-#     encode_kwargs=encode_kwargs,
-# )
+# CREATE EMBEDDINGS FOR BGE LARGE
+model_name = "BAAI/bge-large-en-v1.5"
+model_kwargs = {'device': 'cpu'}
+encode_kwargs = {'normalize_embeddings': True} # set True to compute cosine similarity
+embeddings = HuggingFaceBgeEmbeddings(
+    model_name=model_name,
+    model_kwargs=model_kwargs,
+    encode_kwargs=encode_kwargs,
+)
 
 # CREATE EMBEDDINGS USING OPENAI TEXT-EMBEDINGS-SMALL
 model_name = "text-embedding-3-small"
 embeddings = OpenAIEmbeddings(model=model_name)
+
+
 vectorstore = FAISS.from_documents(documents=texts, embedding=embeddings)
 vectorstore.save_local("C:/Users/ragha/Documents/GitHub/code-repo-llama2-sandipan")
-# np.save(f"openai_text_embeddings_small.npy", vectorstore)
-# print(type(vectorstore))
+

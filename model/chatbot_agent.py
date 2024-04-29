@@ -9,7 +9,7 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from utils.prompt_template_utils import get_prompt_template
 import logging
 import os
-
+from langchain_openai import OpenAIEmbeddings
 from .load_models import (
     load_quantized_model_gguf_ggml,
     load_quantized_model_qptq,
@@ -18,14 +18,14 @@ from .load_models import (
 )
 from transformers import GenerationConfig, pipeline
 
+
 # Initialize logging
 logging.basicConfig(level=logging.INFO)
 
 
 # Constants
 callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
-# ANYSCALE_API_KEY = "esecret_mwumjhdm7ng82q23hkkmmm8ykw"
-ANYSCALE_API_KEY = "esecret_z6lhj9ge216kbz4qx834kibbkt"
+ANYSCALE_API_KEY = ""
 os.environ["ANYSCALE_API_BASE"] = "https://api.endpoints.anyscale.com/v1"
 os.environ["ANYSCALE_API_KEY"] = ANYSCALE_API_KEY 
 
@@ -92,8 +92,7 @@ def load_model(device_type, model_id, model_basename=None, LOGGING=logging):
 @st.cache_resource
 def setup_bot_agent():
 
-    final_embeddings = np.load(f"instructor_embeddings_large.npy", allow_pickle=True)
-    vectorstore = final_embeddings.item()
+    vectorstore = FAISS.load_local("C:/Users/ragha/Documents/GitHub/code-repo-llama2-sandipan", OpenAIEmbeddings(model="text-embedding-3-small"), allow_dangerous_deserialization=True)
 
     template = """You are a software engineer answering to a senior software engineer, you will use the provided knowledge to answer questions about the code. Think step by step and respond appropriately If you can not answer a question based on 
     the provided context, inform the user. Do not use any other prior information for answering. Give concise but fully explained answers in a bulleted format. Do not narrate the conversation.
