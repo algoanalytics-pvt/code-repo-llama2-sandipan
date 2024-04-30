@@ -49,34 +49,34 @@ pyloader = GenericLoader.from_filesystem(
     parser=LanguageParser(language=Language.PYTHON, parser_threshold=0),
 )
 
-jsonloader = JSONLoader(
-    file_path= glob.glob("data/**/*.json", recursive=True),
-    jq_schema='.'
-)
+# jsonloader = JSONLoader(
+#     file_path= glob.glob("data/**/*.json", recursive=True),
+#     jq_schema='.'
+# )
 
 txtloader = GenericLoader.from_filesystem(
     path = "data",
     glob="**/[!.]*",
-    suffixes=[".txt",".md",],
-    parser=TextParser,
+    suffixes=[".txt", ".md",".sh"],
+    parser=TextParser(),
 )
 
 
 python_documents = pyloader.load()
-json_documents = jsonloader.load()
+# json_documents = jsonloader.load()
 text_documents = txtloader.load()
 
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=512, chunk_overlap=50)
-python_splitter = RecursiveCharacterTextSplitter.from_language(language=Language.PYTHON, chunk_size=512, chunk_overlap=50)
-json_splitter = RecursiveJsonSplitter(max_chunk_size=300)
+python_splitter = RecursiveCharacterTextSplitter.from_language(language=Language.PYTHON, chunk_size=1024, chunk_overlap=100)
+# json_splitter = RecursiveJsonSplitter(max_chunk_size=300)
 
 
 texts = python_splitter.split_documents(python_documents)
-texts.extend(json_splitter.split_json(json_documents))
+# texts.extend(json_splitter.split_json(json_documents))
 texts.extend(text_splitter.split_documents(text_documents))
 print('number of chunks',len(texts))
-
+# print(texts)
 # # Create embeddings FOR INTRUCTOR LARGE
 # embeddings = HuggingFaceInstructEmbeddings(
 #     model_name="hkunlp/instructor-large",

@@ -1,0 +1,339 @@
+,question,answer,contexts,ground_truth,context_utilization,faithfulness,answer_relevancy,context_precision,context_recall,answer_correctness
+0,Which database is used in the network?,"Based on the provided code, the database used in the network is MongoDB. The connection to the MongoDB database is established using the following line of code:
+
+conn = pymongo.MongoClient(""mongodb://mongo:mongo@mongodb:27017/Aksha?authSource=admin&tls=false"", directConnection=True)
+
+This line of code creates a connection to a MongoDB instance located at mongodb:27017, and the database name is ""Aksha"".","['#  Copyright (c) Microsoft Corporation. All rights reserved.\n#  Licensed under the MIT License.\n\n# binding types\nCOSMOS_DB = ""cosmosDB""\nCOSMOS_DB_TRIGGER = ""cosmosDBTrigger""\nEVENT_HUB_TRIGGER = ""eventHubTrigger""\nEVENT_HUB = ""eventHub""\nHTTP_TRIGGER = ""httpTrigger""\nHTTP_OUTPUT = ""http""\nQUEUE = ""queue""\nQUEUE_TRIGGER = ""queueTrigger""\nSERVICE_BUS = ""serviceBus""\nSERVICE_BUS_TRIGGER = ""serviceBusTrigger""\nTIMER_TRIGGER = ""timerTrigger""\nWARMUP_TRIGGER = ""warmupTrigger""\nBLOB_TRIGGER = ""blobTrigger""\nBLOB = ""blob""\nEVENT_GRID_TRIGGER = ""eventGridTrigger""\nEVENT_GRID = ""eventGrid""\nTABLE = ""table""'
+ ""logger.info(msg=f'Database connected successfully')\n        except Exception as e:\n            logger.info(msg=f'Database connection failed: {e}')\n\n        #anomaly_percentage_value (contamination in IF model)\n        anomaly_percent = 0.005\n\n        # model training function\n        while True:\n            current_time = datetime.datetime.now()\n            model_training_time = current_time-timedelta(hours=1)\n            if current_time.minute == 00:""
+ '""xenserver""     XenServer\n    ""openbsd""       OpenBSD\n    ""netbsd""        NetBSD\n    ""freebsd""       FreeBSD\n    ""midnightbsd""   MidnightBSD\n    ==============  ========================================='
+ 'conn = pymongo.MongoClient(""mongodb://mongo:mongo@mongodb:27017/Aksha?authSource=admin&tls=false"", directConnection=True) # Uncomment this line for running in production/docker network\n            #Defining DB name \n            print(conn)\n            db = conn[""Aksha""]\n            db.create_collection(""Resource"")'
+ '==============  =========================================\n    Distro ID       Distribution\n    ==============  =========================================\n    ""ubuntu""        Ubuntu\n    ""debian""        Debian\n    ""rhel""          RedHat Enterprise Linux\n    ""centos""        CentOS\n    ""fedora""        Fedora\n    ""sles""          SUSE Linux Enterprise Server\n    ""opensuse""      openSUSE\n    ""amazon""        Amazon Linux\n    ""arch""          Arch Linux\n    ""cloudlinux""    CloudLinux OS\n    ""exherbo""       Exherbo Linux\n    ""gentoo""        GenToo Linux\n    ""ibm_powerkvm""  IBM PowerKVM\n    ""kvmibm""        KVM for IBM z Systems\n    ""linuxmint""     Linux Mint\n    ""mageia""        Mageia\n    ""mandriva""      Mandriva Linux\n    ""parallels""     Parallels\n    ""pidora""        Pidora\n    ""raspbian""      Raspbian\n    ""oracle""        Oracle Linux (and Oracle Enterprise Linux)\n    ""scientific""    Scientific Linux\n    ""slackware""     Slackware\n    ""xenserver""     XenServer\n    ""openbsd""       OpenBSD\n    ""netbsd""        NetBSD']","- The database used in the network is MongoDB.
+- The connection to MongoDB is established using the connection string `mongodb://mongo:mongo@mongodb:27017/Aksha?authSource=admin&tls=false`.
+- The database name used in the code is ""Aksha"".
+- A collection named ""Resource"" is created within the ""Aksha"" database.",0.8041666666465626,1.0,0.9965018209413395,0.8041666666465626,0.0,0.7255149963433952
+1,Where is shared volume of this repository stored?,"The `site_data_dir` function returns the full path to the user-shared data directory for a given application. The function takes four parameters: `appname`, `appauthor`, `version`, and `multipath`. 
+
+If `appname`, `appauthor`, and `version` are provided, the function will use the default directory for the specified application version. 
+
+If `appname` and `appauthor` are provided but `version` is not, the function will use the default directory for the specified application.
+
+If `appname` is provided but `appauthor` and `version` are not, the function will use the default directory for the specified application.
+
+If only `appname` is provided, the function will use the default directory for the specified application.
+
+If no parameters are provided, the function will use the default directory for the current application.
+
+The function returns the path to the user-shared data directory as a string.
+
+Note: The `multipath` parameter is not used in this function, so it can be safely ignored.","['The first time this property is accessed, the relevant information is\n        read from the SHARED file in the .dist-info directory.\n        """"""\n        result = {}\n        shared_path = os.path.join(self.path, \'SHARED\')\n        if os.path.isfile(shared_path):\n            with codecs.open(shared_path, \'r\', encoding=\'utf-8\') as f:\n                lines = f.read().splitlines()\n            for line in lines:\n                key, value = line.split(\'=\', 1)\n                if key == \'namespace\':\n                    result.setdefault(key, []).append(value)\n                else:\n                    result[key] = value\n        return result'
+ 'def write_shared_locations(self, paths, dry_run=False):\n        """"""\n        Write shared location information to the SHARED file in .dist-info.\n        :param paths: A dictionary as described in the documentation for\n        :meth:`shared_locations`.\n        :param dry_run: If True, the action is logged but no file is actually\n                        written.\n        :return: The path of the file written to.\n        """"""\n        shared_path = os.path.join(self.path, \'SHARED\')\n        logger.info(\'creating %s\', shared_path)\n        if dry_run:\n            return None\n        lines = []\n        for key in (\'prefix\', \'lib\', \'headers\', \'scripts\', \'data\'):\n            path = paths[key]\n            if os.path.isdir(paths[key]):\n                lines.append(\'%s=%s\' % (key,  path))\n        for ns in paths.get(\'namespace\', ()):\n            lines.append(\'namespace=%s\' % ns)\n\n        with codecs.open(shared_path, \'w\', encoding=\'utf-8\') as f:\n            f.write(\'\\n\'.join(lines))\n        return shared_path'
+ 'Typical site data directories are:\n        Mac OS X:   /Library/Application Support/<AppName>\n        Unix:       /usr/local/share/<AppName> or /usr/share/<AppName>\n        Win XP:     C:\\Documents and Settings\\All Users\\Application Data\\<AppAuthor>\\<AppName>\n        Vista:      (Fail! ""C:\\ProgramData"" is a hidden *system* directory on Vista.)\n        Win 7:      C:\\ProgramData\\<AppAuthor>\\<AppName>   # Hidden, but writeable on Win 7.\n\n    For Unix, this is using the $XDG_DATA_DIRS[0] default.'
+ 'Typical site data directories are:\n        Mac OS X:   /Library/Application Support/<AppName>\n        Unix:       /usr/local/share/<AppName> or /usr/share/<AppName>\n        Win XP:     C:\\Documents and Settings\\All Users\\Application Data\\<AppAuthor>\\<AppName>\n        Vista:      (Fail! ""C:\\ProgramData"" is a hidden *system* directory on Vista.)\n        Win 7:      C:\\ProgramData\\<AppAuthor>\\<AppName>   # Hidden, but writeable on Win 7.\n\n    For Unix, this is using the $XDG_DATA_DIRS[0] default.'
+ 'def site_data_dir(appname=None, appauthor=None, version=None, multipath=False):\n    r""""""Return full path to the user-shared data dir for this application.']","- The shared volume of this repository is stored in the SHARED file in the .dist-info directory.
+- The shared volume data is read from the SHARED file using the `read_shared_locations` method.
+- The shared volume information is written to the SHARED file using the `write_shared_locations` method.
+- The shared volume data includes keys like 'prefix', 'lib', 'headers', 'scripts', 'data', and 'namespace'.
+- The shared volume is accessed using the `site_data_dir` function with parameters for the application name, author, version, and whether to return multiple paths.",0.99999999998,1.0,0.7167472439414445,0.99999999998,1.0,0.4751415799971858
+2,Login credentials API is from which cloud base?,The login credentials API is from Azure.,"['# Start with the credentials embedded in the url\n        username, password = url_user_password\n        if username is not None and password is not None:\n            logger.debug(""Found credentials in url for %s"", netloc)\n            return url_user_password\n\n        # Find a matching index url for this request\n        index_url = self._get_index_url(url)\n        if index_url:\n            # Split the credentials from the url.\n            index_info = split_auth_netloc_from_url(index_url)\n            if index_info:\n                index_url, _, index_url_user_password = index_info\n                logger.debug(""Found index url %s"", index_url)'
+ '# If an index URL was found, try its embedded credentials\n        if index_url and index_url_user_password[0] is not None:\n            username, password = index_url_user_password\n            if username is not None and password is not None:\n                logger.debug(""Found credentials in index url for %s"", netloc)\n                return index_url_user_password\n\n        # Get creds from netrc if we still don\'t have them\n        if allow_netrc:\n            netrc_auth = get_netrc_auth(original_url)\n            if netrc_auth:\n                logger.debug(""Found credentials in netrc for %s"", netloc)\n                return netrc_auth'
+ 'azure' 'azure' 'azure']",=- The login credentials API is from The Azure cloud base.,0.47777777776185176,1.0,0.8967736356864974,0.47777777776185176,1.0,0.7381489595524342
+3,Which services are responsible to generate alerts?,"• The services responsible for generating alerts are:
+    • Whats App service
+    • Telegram service
+    • Email notification service","['self.notify = Notify(self.check, self.im_name, self.frame, self.result_img, self.workday_img, self.holiday_img,\n                                                                    self.camera_name, self.main_dir, self.frame_anomaly_status, self.object_anomaly_status, self.no_object_status,\n                                                                    self.alert_results, self.alert_description, self.alert_notification_validity, self.previous_alert_statuses,\n                                                                    self.skip_fps_sec, self.alert_path, self.frame_path, self.live_path, self.spotlight_path,\n                                                                    self.recipients, self.subscription, self.whats_app_service, self.telegram_service, self.config,\n                                                                    self.email_autoalert, self.camera_configuration,'
+ 'parser.add_argument(\'--autoalert_notification_email_service\',\n                   help=""Enable email notification service for Autoalerts"",  type=bool, default=os.environ.get(""AUTOALERT_EMAIL_NOTIFICATION_SERVICE""))\nparser.add_argument(\'--whats_app_service\',\n                    help=""Enable whats app service"", type=str, default=os.environ.get(""WHATS_APP_SERVICE""))\nparser.add_argument(\'--telegram_service\',\n                    help=""Enable telegram service"", type=str, default=os.environ.get(""TELEGRAM_SERVICE""))\nparser.add_argument(\'--crowd_threshold\',\n                    help=""Enable crowd_threshold"", type=int, default=6)\nparser.add_argument(\'--time_delta\',\n                    help=""Please enter deletion data retention period in days."", type=int, default=10)\nparser.add_argument(\'--autoalert_display\',\n                   help=""Enable Autoalerts display on monitor screen"",  type=bool, default=os.environ.get(""AUTOALERT_DISPLAY""))\nparser.add_argument(\'--email_alert\','
+ 'alert_description (list): Description of selected alerts\n            alert_notification_validity (list): list of boolean values representing email activation status for selected alerts\n            previous_alert_statuses (dict): dictionary maintained across consequtive frames to remeber the details about alerts detected in previous frames \n            skip_fps_sec (int): used for calulating the number of frames to be skipped before capturing next frame\n            alert_path (str): path to the alert folder in Aksha Directory for the respective camera\n            frame_path (str): path to the frame folder in Aksha Directory for the respective camera\n            live_path (str): path to the live folder in Aksha Directory for the respective camera\n            spotlight_path (str):  path to the spotlight folder in Aksha Directory for the respective camera\n            recipients (list): list of email-ids to send notification\n            subscription (list): list of usernames'
+ 'self.rtsp_id = rtsp_id\n        self.my_alerts = my_alerts\n        self.whats_app_service_status = whats_app_service\n        self.telegram_service_status = telegram_service\n        self.video_path = video_path\n        self.skip_fps_sec = skip_fps_sec\n        self.output_size = output_size\n        self.object_detection = object_detection\n        self.prefilter_threshold = prefilter_threshold\n        self.email_autoalert = email_autoalert\n        self.daily_frames = daily_frames\n        self.daily_frames_temp = daily_frames_temp\n        self.logger = logger\n        self.crowd_threshold = crowd_threshold\n        self.date = dt.date.today()\n        self.previous_alert_statuses = {""object_alert"": {""status"": False, ""count"": 0},\n                                        ""frame_alert"": {""status"": False, ""count"": 0},\n                                        ""detection_alert"": {},\n                                        ""no_object"": {}\n                                        }\n        self.no_object_alert = []'
+ 'parser.add_argument(\'--email_alert\',\n                   help=""Enable email notification service for Alerts"",  type=bool, default=os.environ.get(""EMAIL_ALERT""))\nparser.add_argument(\'--alert_display\',\n                   help=""Enable Alerts display on monitor screen"",  type=bool, default=os.environ.get(""ALERT_DISPLAY""))\nargs = parser.parse_args()']","- The `email_autoalert` service is responsible for generating email alerts.
+- The `whats_app_service` service is responsible for generating WhatsApp alerts.
+- The `telegram_service` service is responsible for generating Telegram alerts.",0.99999999998,1.0,0.9924966039552453,0.99999999998,1.0,0.779088072381581
+4,"What is the folder structure of folder camera, which is created after cameras are activated","The folder structure of the folder 'camera' created after cameras are activated is as follows:
+
+* 'camera' folder
+	+ camera_name (e.g., camera1, camera2, etc.)
+		- background
+		- alerts
+		- frame
+		- foreground
+		- live
+		- spotlight
+
+Note that the 'background' subfolder is only created if the 'dir_type' is not 'background'.","[""self.config = config\n        self.main_dir = main_dir\n        self.camera_name = camera_name\n        self.old_camera_name = camera_name\n        self.camera_rename = False\n        self.update_camera_name = update_camera_name\n        if os.path.exists(f'{self.main_dir}{self.camera_name}/') and (self.update_camera_name!=self.camera_name):\n            shutil.move(f'{self.main_dir}{self.camera_name}', f'{self.main_dir}{self.update_camera_name}')\n            self.camera_name = self.update_camera_name\n            self.camera_rename = True""
+ 'if dir_type== \'insight\' or  dir_type==\'frame\' or dir_type==\'alerts\' or dir_type==\'background\' or dir_type== \'foreground\' or dir_type==\'live\' or dir_type==\'spotlight\':\n                if dir_type != \'background\':\n                        dir_path= f\'{self.main_dir}{self.camera_name}/{dir_type}\'\n                        print(dir_path)\n                        dir_path_isexist = os.path.exists(dir_path)\n                        if not dir_path_isexist:\n                            os.makedirs(dir_path)\n                            self.logger.info(msg=f""{dir_path} created"")\n                        else:\n                            self.logger.info(msg=f""{dir_path} already exist"")\n                        return dir_path\n                else:\n                        background_path = f\'{self.main_dir}{self.camera_name}/background\'\n                        print(background_path)\n                        background_isexist = os.path.exists(background_path)\n                        if not background_isexist:'
+ 'class Setup():\n    \n    def __init__(self, config, camera_name, update_camera_name, rtsp_id, my_alerts, whats_app_service, telegram_service, video_path, skip_fps_sec,\n                output_size, object_detection, prefilter_threshold, email_autoalert, main_dir,\n                daily_frames, daily_frames_temp, logger, crowd_threshold):\n        \n        """"""\n        This class takes care of creating directories, coonecting to mongodb database, fetching alert configurations, fetching camera Configuration\n        and also notificationrelated detail. Provides functionality for reading frames, creating weekly & daily background frames.'
+ 'try: \n        camera_names=get_camera_list()\n        # print(camera_names)\n        logger.info(msg=f""Mongo DB established connection"")\n        #calling training function for each camera\n        for camera_name in camera_names:\n            \n            logger.info(msg=f\'Anomaly model for : {camera_name}\')\n            print(""training for"", camera_name)\n            print(""for frame based"")\n            try:\n                frame_anomaly_model_status = frame_based_anomaly.train_IF_model(aksha_path, camera_name, anomaly_percent, start_hour)\n                logger.info(msg=str(frame_anomaly_model_status))\n            except Exception as e:\n                 print(f""Error in building frame based anomaly model {e}"")\n                 logger.info(msg=f\'frame based anomaly model : {e}\')\n            print(""for object based"")\n            try:\n                object_anomaly_model_status =object_based_anomaly.train_IF_object_based_model(aksha_path, camera_name, anomaly_percent, start_hour,db)'
+ ""self.config = config\n        self.camera_name = camera_name\n        self.update_camera_name = update_camera_name\n        self.rtsp_id = rtsp_id\n        self.my_alerts = my_alerts\n        self.video_path = video_path\n        self.skip_fps_sec = skip_fps_sec\n        self.output_size = output_size\n        self.object_detection = object_detection\n        self.prefilter_threshold = prefilter_threshold\n        self.email_autoalert = email_autoalert\n        self.crowd_threshold = crowd_threshold\n        self.time_delta = time_delta\n        self.autoalert_display = autoalert_display\n        self.email_alert = email_alert\n        self.alert_display = alert_display\n        \n        self.main_dir = 'Aksha/'\n        # self.main_dir = '/home/algo39/kartikz/Aksha-Version-2/Aksha/'\n        self.background_skip_frames = 120\n        # self.frames_background_gen = {str(hour): [] for hour in range(24)}\n        self.daily_frames = []\n        self.daily_frames_temp = []\n        self.date = dt.date.today()""]","- The folder structure of the `camera` folder is as follows:
+    - `main_dir/camera_name/insight`
+    - `main_dir/camera_name/frame`
+    - `main_dir/camera_name/alerts`
+    - `main_dir/camera_name/background`
+    - `main_dir/camera_name/foreground`
+    - `main_dir/camera_name/live`
+    - `main_dir/camera_name/spotlight`
+
+- If the `dir_type` is not equal to `background`:
+    - The directory path will be `main_dir/camera_name/dir_type`
+    - If the directory path does not exist, it will be created and a log message will be printed.
+    - If the directory path already exists, a log message will be printed.
+
+- If the `dir_type` is equal to `background`:
+    - The `background_path` will be `main_dir/camera_name/background`
+    - If the background path does not exist, it will be created (code snippet is not provided for this scenario).",0.99999999998,0.5,0.9785587997440871,0.99999999998,1.0,0.6325635815728309
+5,Explain code flow in Aksha Pipeline?,"Here's the explanation of the code flow in the Aksha pipeline:
+
+1. The script starts by printing a welcome message and initiating the installation process.
+
+```
+echo ""Welcome to Aksha(AI Powered Surveillance) powered by AlgoAnalytics Pvt. Ltd""
+echo ""Initiating the installation process.......""
+```
+
+2. It then stops the MongoDB service, removes the existing Aksha directory, and creates a new one.
+
+```
+sudo service mongodb stop
+sudo rm -r Aksha & sudo mkdir Aksha || sudo mkdir Aksha
+```
+
+3. The script then kills and removes all running Docker containers and prunes the Docker system.
+
+```
+sudo docker kill $(sudo docker ps -q)
+sudo docker system prune -f
+```
+
+4. The script then prints a message indicating that the installation has started and changes into the Aksha directory.
+
+```
+echo ""Intiallation Started....""
+cd Aksha
+```
+
+5. It then prints a message indicating that resources are being loaded and downloads some files (labels.txt, avatar.png, and user.png) from an Amazon S3 bucket.
+
+```
+echo ""Resource Loading ......""
+curl https://aksha-storage.s3.ap-south-1.amazonaws.com/aksha-resources/avatar.png -O avatar.png
+curl https://aksha-storage.s3.ap-south-1.amazonaws.com/aksha-resources/user.png -O user.png
+curl https://aksha-storage.s3.ap-south-1.amazonaws.com/aksha-resources/labels.txt -O labels.txt
+```
+
+6. The script then prints another welcome message and initiates the installation process again.
+
+```
+echo ""Welcome to Aksha(AI Powered Surveillance) powered by AlgoAnalytics Pvt. Ltd""
+echo ""Initiating the installation process.......""
+```
+
+7. It then shuts down the MongoDB service, removes the existing Aksha directory, and creates a new one.
+
+```
+mongod --shutdown
+rm -r Aksha & mkdir Aksha || mkdir Aksha
+```
+
+8. The script then kills and removes all running Docker containers and prunes the Docker system again.
+
+```
+docker kill $(sudo docker ps -q)
+docker system prune -f
+```
+
+9. The script then prints a message indicating that the installation has started and changes into the Aksha directory again.
+
+```
+echo ""Intiallation Started....""
+cd Aksha
+```
+
+10. It then prints a message indicating that resources are being loaded again and downloads some files (labels.txt) from an Amazon S3 bucket.
+
+```
+echo ""Resource Loading ......""
+# ubuntu specific
+sudo wget https://aksha-storage.s3.ap-south-1.amazonaws.com/aksha-resources/labels.txt
+```
+
+11. Finally, the script downloads some executable files from a Microsoft Azure Blob storage.
+
+```
+# executables files
+# sudo wget https://aksha.blob.core.windows.net/aksha-resources/Aksha
+```","['# Aksha-Version-2'
+ 'echo ""Welcome to Aksha(AI Powered Surveillance) powered by AlgoAnalytics Pvt. Ltd"" \n\necho ""Initiating the installation process.......""\n \nsudo service mongodb stop\n\nsudo rm -r Aksha & sudo mkdir Aksha || sudo mkdir Aksha\n\nsudo docker kill $(sudo docker ps -q) \n\nsudo docker system prune -f \n\necho ""Intiallation Started....""\n\ncd Aksha\n\n\necho ""Resource Loading ......""'
+ 'echo ""Intiallation Started....""\n\ncd Aksha\n\necho ""Resource Loading ......""\n# curl https://aksha-storage.s3.ap-south-1.amazonaws.com/aksha-resources/avatar.png -O avatar.png\n# curl https://aksha-storage.s3.ap-south-1.amazonaws.com/aksha-resources/user.png -O user.png\ncurl https://aksha-storage.s3.ap-south-1.amazonaws.com/aksha-resources/labels.txt -O labels.txt'
+ 'echo ""Welcome to Aksha(AI Powered Surveillance) powered by AlgoAnalytics Pvt. Ltd""\necho ""Initiating the installation process.......""\n\nmongod --shutdown\n\nrm -r Aksha & mkdir Aksha || mkdir Aksha\n\ndocker kill $(sudo docker ps -q)\ndocker system prune -f\n\necho ""Intiallation Started....""\n\ncd Aksha'
+ 'cd Aksha\n\n\necho ""Resource Loading ......""\n\n# ubnutu specific\nsudo wget https://aksha-storage.s3.ap-south-1.amazonaws.com/aksha-resources/labels.txt\n# sudo wget https://aksha-storage.s3.ap-south-1.amazonaws.com/aksha-resources/avatar.png\n# sudo wget https://aksha-storage.s3.ap-south-1.amazonaws.com/aksha-resources/user.png\n\n# executables files\n# sudo wget https://aksha.blob.core.windows.net/aksha-resources/Aksha']","- The script starts by echoing a welcome message and initiating the installation process.
+- It then stops the MongoDB service using ""sudo service mongodb stop.""
+- The script removes the ""Aksha"" directory recursively and then creates a new ""Aksha"" directory using ""sudo rm -r Aksha & sudo mkdir Aksha || sudo mkdir Aksha.""
+- It kills all running Docker containers using ""sudo docker kill $(sudo docker ps -q)"" and prunes the Docker system forcefully using ""sudo docker system prune -f.""
+- The script then echoes that the installation has started and changes the directory to ""Aksha.""
+- It echoes ""Resource Loading ......"" before downloading the ""labels.txt"" file from a specified URL using ""curl.""
+- The script repeats the welcome message and installation initiation, then shuts down MongoDB and recreates the ""Aksha"" directory.
+- It kills running Docker containers and prunes the Docker system again.
+- The directory is changed to ""Aksha"" again, and another ""Resource Loading ......"" message is echoed.
+- Finally, the script uses ""sudo wget"" to download the ""labels.txt"" file from a different URL and comments out the lines that were supposed to download other files like ""avatar.png"" and ""user.png.""
+- It also comments out the line that was supposed to download an executable file named ""Aksha"" from a different URL.",0.99999999998,1.0,0.9817800792480652,0.99999999998,1.0,0.6121880327554954
+6,How many api are there from AWS?,"There are no APIs from AWS in this context. The code provided is related to the Requests API, which is a Python library for making HTTP requests, and other libraries related to Azure services such as Azure Storage, Azure Functions, Azure Service Bus, Azure Identity, and azure-data-tables.","['""""""\nrequests.api\n~~~~~~~~~~~~\n\nThis module implements the Requests API.\n\n:copyright: (c) 2012 by Kenneth Reitz.\n:license: Apache2, see LICENSE for more details.\n""""""\n\nfrom . import sessions\n\n\n# Code for: def request(method, url, **kwargs):\n\n\n# Code for: def get(url, params=None, **kwargs):\n\n\n# Code for: def options(url, **kwargs):\n\n\n# Code for: def head(url, **kwargs):\n\n\n# Code for: def post(url, data=None, json=None, **kwargs):\n\n\n# Code for: def put(url, data=None, **kwargs):\n\n\n# Code for: def patch(url, data=None, **kwargs):\n\n\n# Code for: def delete(url, **kwargs):'
+ '# -*- coding: utf-8 -*-\n\n""""""\nrequests.api\n~~~~~~~~~~~~\n\nThis module implements the Requests API.\n\n:copyright: (c) 2012 by Kenneth Reitz.\n:license: Apache2, see LICENSE for more details.\n""""""\n\nfrom . import sessions\n\n\n# Code for: def request(method, url, **kwargs):\n\n\n# Code for: def get(url, params=None, **kwargs):\n\n\n# Code for: def options(url, **kwargs):\n\n\n# Code for: def head(url, **kwargs):\n\n\n# Code for: def post(url, data=None, json=None, **kwargs):\n\n\n# Code for: def put(url, data=None, **kwargs):\n\n\n# Code for: def patch(url, data=None, **kwargs):\n\n\n# Code for: def delete(url, **kwargs):'
+ '414: ""Request URI Too Long"",\n    415: ""Unsupported Media Type"",\n    416: ""Requested Range Not Satisfiable"",\n    417: ""Expectation Failed"",\n    418: ""I\'m a teapot"",  # see RFC 2324\n    421: ""Misdirected Request"",  # see RFC 7540\n    422: ""Unprocessable Entity"",\n    423: ""Locked"",\n    424: ""Failed Dependency"",\n    426: ""Upgrade Required"",\n    428: ""Precondition Required"",  # see RFC 6585\n    429: ""Too Many Requests"",\n    431: ""Request Header Fields Too Large"",\n    449: ""Retry With"",  # proprietary MS extension\n    451: ""Unavailable For Legal Reasons"",\n    500: ""Internal Server Error"",\n    501: ""Not Implemented"",\n    502: ""Bad Gateway"",\n    503: ""Service Unavailable"",\n    504: ""Gateway Timeout"",\n    505: ""HTTP Version Not Supported"",\n    507: ""Insufficient Storage"",\n    510: ""Not Extended"",\n}'
+ '_SUPPORTED_API_VERSIONS = [""2019-02-02"", ""2019-07-07"", ""2020-12-06""]\n# cspell:disable-next-line\n_DEV_CONN_STRING = ""DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1"" # pylint: disable=line-too-long\n\n\n# Code for: def get_api_version(kwargs, default):\n\n\n# Code for: class AccountHostsMixin(object):  # pylint: disable=too-many-instance-attributes\n\n\n# Code for: class TablesBaseClient(AccountHostsMixin):\n\n\n# Code for: class TransportWrapper(HttpTransport):\n\n\n# Code for: def parse_connection_str(conn_str, credential, keyword_args):\n\n\n# Code for: def extract_batch_part_metadata(response_part):\n\n\n# Code for: def format_query_string(sas_token, credential):\n\n\n# Code for: def parse_query(query_str):'
+ '# Do not include azure-functions-worker in this file\n# The Python Worker is managed by the Azure Functions platform\n# Manually managing azure-functions-worker may cause unexpected issues\n\naiohttp\nazure-functions\nazure-data-tables\nazure-servicebus\nazure-storage-blob\nazure-identity']","I'm sorry, but based on the provided context, there is no information about AWS APIs. The code snippets provided are related to the Requests API implementation and some Azure services, not AWS.",0.0,1.0,0.8374472176993515,0.0,1.0,0.22735552189586877
+7,How many apis are there in Node?,"Based on the provided code, I can see that there is no direct mention of APIs in Node. The code is using `subprocess` to call commands such as `pm2` and `nginx`, which are likely used to manage and run Node.js applications. However, it does not specify any APIs.
+
+If you are referring to the HTTP methods defined in the `requests` module, there are 8 APIs defined:
+
+* `request(method, url, **kwargs)`
+* `get(url, params=None, **kwargs)`
+* `options(url, **kwargs)`
+* `head(url, **kwargs)`
+* `post(url, data=None, json=None, **kwargs)`
+* `put(url, data=None, **kwargs)`
+* `patch(url, data=None, **kwargs)`
+* `delete(url, **kwargs)`
+
+Please note that these are not Node.js APIs, but rather HTTP request methods defined in the `requests` module.","['import subprocess\nimport os\nos.chdir(""/opt/backend"")\nos.environ[\'NODE_PORT\']=\'5000\'\nsubprocess.call([""pm2"", ""--name"",  ""akshabackend"",  ""start"",  ""npm"",  ""--"",  ""start""]);\nsubprocess.call([""nginx"", ""-g"", ""daemon off;""]);'
+ 'anyio==3.6.2\nfastapi==0.85.1\nuvicorn[standard]\nidna==3.4\nnumpy==1.23.4\nopencv-python==4.8.0.76\nopencv-contrib-python==4.8.0.74\nffmpeg-python==0.2.0\npydantic==1.10.2\nsniffio==1.3.0\nstarlette==0.20.4\ntyping-extensions==4.4.0\nPillow\nrequests'
+ '""""""\nrequests.api\n~~~~~~~~~~~~\n\nThis module implements the Requests API.\n\n:copyright: (c) 2012 by Kenneth Reitz.\n:license: Apache2, see LICENSE for more details.\n""""""\n\nfrom . import sessions\n\n\n# Code for: def request(method, url, **kwargs):\n\n\n# Code for: def get(url, params=None, **kwargs):\n\n\n# Code for: def options(url, **kwargs):\n\n\n# Code for: def head(url, **kwargs):\n\n\n# Code for: def post(url, data=None, json=None, **kwargs):\n\n\n# Code for: def put(url, data=None, **kwargs):\n\n\n# Code for: def patch(url, data=None, **kwargs):\n\n\n# Code for: def delete(url, **kwargs):'
+ '# Getting Started with Create React App\n\nThis project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\n\n## Available Scripts\n\nIn the project directory, you can run:\n\n### `npm start`\n\nRuns the app in the development mode.\\\nOpen [http://react_frontend:3000](http://localhost:3000) to view it in the browser.\n\nThe page will reload if you make edits.\\\nYou will also see any lint errors in the console.\n\n### `npm test`'
+ '414: ""Request URI Too Long"",\n    415: ""Unsupported Media Type"",\n    416: ""Requested Range Not Satisfiable"",\n    417: ""Expectation Failed"",\n    418: ""I\'m a teapot"",  # see RFC 2324\n    421: ""Misdirected Request"",  # see RFC 7540\n    422: ""Unprocessable Entity"",\n    423: ""Locked"",\n    424: ""Failed Dependency"",\n    426: ""Upgrade Required"",\n    428: ""Precondition Required"",  # see RFC 6585\n    429: ""Too Many Requests"",\n    431: ""Request Header Fields Too Large"",\n    449: ""Retry With"",  # proprietary MS extension\n    451: ""Unavailable For Legal Reasons"",\n    500: ""Internal Server Error"",\n    501: ""Not Implemented"",\n    502: ""Bad Gateway"",\n    503: ""Service Unavailable"",\n    504: ""Gateway Timeout"",\n    505: ""HTTP Version Not Supported"",\n    507: ""Insufficient Storage"",\n    510: ""Not Extended"",\n}']","- There are a total of 8 APIs in the `requests.api` module in Node:
+    1. request(method, url, **kwargs)
+    2. get(url, params=None, **kwargs)
+    3. options(url, **kwargs)
+    4. head(url, **kwargs)
+    5. post(url, data=None, json=None, **kwargs)
+    6. put(url, data=None, **kwargs)
+    7. patch(url, data=None, **kwargs)
+    8. delete(url, **kwargs)",0.3333333333,0.23076923076923078,0.8110032421168415,0.3333333333,0.0,0.8388542958594614
+8,Explain Mongodb schema,"Based on the provided code and context, it appears that the MongoDB schema is not explicitly defined in the code. However, we can infer some information about the schema from the code.
+
+The code creates a MongoDB client and connects to a database named ""Aksha"". It then creates a collection named ""Resource"" in the database.
+
+The code also defines a dictionary `_attribute_map` that maps MongoDB field names to Python dictionaries containing information about the field, such as its key, type, and XML name.
+
+Additionally, the code defines an `_xml_map` dictionary that maps a field name ""name"" to an XML name ""GeoReplication"".
+
+However, there is no explicit definition of a MongoDB schema in the code. The schema is not defined using MongoDB's document-based schema definition language, such as MongoDB's schema-less schema or Mongoose's schema definition.
+
+If you are looking for a MongoDB schema definition, you may need to provide additional information or context about the schema you are trying to define.","['conn = pymongo.MongoClient(""mongodb://mongo:mongo@mongodb:27017/Aksha?authSource=admin&tls=false"", directConnection=True) # Uncomment this line for running in production/docker network\n            #Defining DB name \n            print(conn)\n            db = conn[""Aksha""]\n            db.create_collection(""Resource"")'
+ 'import pymongo\nimport datetime \nimport json\nimport os\nimport logging\n\n# client = pymongo.MongoClient(""mongodb://mongo:mongo@localhost:27017/Aksha?authSource=admin&tls=false"", directConnection=True)\n\n# db = client[""Aksha""]\n\n# def get_camera_list():\n#     camera_names=db.config.distinct(""Camera_Name"")\n#     return camera_names\n\n# Code for: def generate_insight_report(aksha_path, cameras, db, logger):\n\n\n\n# Code for: def del_insight_report(data_dir, time_delta):\n\n# aksha_path=""Aksha""\n# cameras=get_camera_list()\n# logging.basicConfig(filename=f""{aksha_path}/anomaly-model-training.log"", format=\'%(asctime)s %(message)s\', filemode=\'w\', level=logging.DEBUG)\n# logger = logging.getLogger()\n# generate_insight_report(aksha_path, cameras, db, logger)'
+ 'Example of JSON:\n\n    error: {\n        ""code"": ""ValidationError"",\n        ""message"": ""One or more fields contain incorrect values: "",\n        ""details"": [\n            {\n                ""code"": ""ValidationError"",\n                ""target"": ""representation"",\n                ""message"": ""Parsing error(s): String \'\' does not match regex pattern \'^[^{}/ :]+(?: :\\\\\\\\d+)?$\'.\n                Path \'host\', line 1, position 297.""\n            },\n            {\n                ""code"": ""ValidationError"",\n                ""target"": ""representation"",\n                ""message"": ""Parsing error(s): The input OpenAPI file is not valid for the OpenAPI specificate\n                https: //github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md\n                (schema https://github.com/OAI/OpenAPI-Specification/blob/master/schemas/v2.0/schema.json).""\n            }\n        ]\n    }'
+ ""6: 1,  # 'מ'\n        23: 0,  # 'ן'\n        12: 1,  # 'נ'\n        19: 1,  # 'ס'\n        13: 1,  # 'ע'\n        26: 0,  # 'ף'\n        18: 1,  # 'פ'\n        27: 0,  # 'ץ'\n        21: 1,  # 'צ'\n        17: 1,  # 'ק'\n        7: 1,  # 'ר'\n        10: 1,  # 'ש'\n        5: 1,  # 'ת'\n        32: 0,  # '–'\n        52: 0,  # '’'\n        47: 0,  # '“'\n        46: 0,  # '”'\n        58: 0,  # '†'\n        40: 0,  # '…'\n    },\n    46: {  # '”'\n        50: 0,  # 'a'\n        60: 0,  # 'c'\n        61: 0,  # 'd'\n        42: 0,  # 'e'\n        53: 0,  # 'i'\n        56: 0,  # 'l'\n        54: 0,  # 'n'\n        49: 0,  # 'o'\n        51: 0,  # 'r'\n        43: 0,  # 's'\n        44: 1,  # 't'\n        63: 0,  # 'u'\n        34: 0,  # '\\xa0'\n        55: 0,  # '´'\n        48: 0,  # '¼'\n        39: 0,  # '½'\n        57: 0,  # '¾'\n        30: 0,  # 'ְ'\n        59: 0,  # 'ֱ'\n        41: 0,  # 'ֲ'\n        33: 0,  # 'ִ'\n        37: 0,  # 'ֵ'\n        36: 0,  # 'ֶ'\n        31: 0,  # 'ַ'\n        29: 0,  # 'ָ'\n        35: 0,  # 'ֹ'""
+ '_attribute_map = {\n        ""status"": {""key"": ""Status"", ""type"": ""str"", ""xml"": {""name"": ""Status""}},\n        ""last_sync_time"": {""key"": ""LastSyncTime"", ""type"": ""rfc-1123"", ""xml"": {""name"": ""LastSyncTime""}},\n    }\n    _xml_map = {""name"": ""GeoReplication""}']","- The code snippet provided establishes a connection to a MongoDB database named ""Aksha"" and creates a collection named ""Resource"" within that database.
+- The connection string used for connecting to MongoDB includes the username ""mongo"", password ""mongo"", host ""mongodb"", port ""27017"", database name ""Aksha"", authentication source ""admin"", and TLS disabled.
+- The connection object is stored in the variable ""conn"" and the database object is obtained by accessing the ""Aksha"" key from the connection object.
+- A collection named ""Resource"" is then created within the ""Aksha"" database.
+- The code also includes commented out sections that define a client, get camera names from a ""config"" collection, and generate insight reports.
+- The JSON example provided showcases an error object with code, message, and details containing validation error information.
+- Lastly, there are mappings defined in the code snippet for attributes like ""status"" and ""last_sync_time"" along with an XML mapping for ""GeoReplication"".",0.99999999995,1.0,0.8495043334050241,0.99999999995,0.8571428571428571,0.5868117735459923
+9,What is the purpose of the file deletion.py?,"The purpose of the file deletion.py is not explicitly stated in the provided code. However, based on the code, it appears that deletion.py is a part of a package or module that is used to manage temporary directories and files created during the process of creating an executable or an egg file.
+
+The code includes methods such as `_allowed_to_proceed`, `zap_pyfiles`, and `remove_tree` that seem to be related to deleting files and directories. The `zap_pyfiles` method, for example, iterates over the files in a temporary directory and deletes any files that end with the `.py` extension.
+
+Without more context, it's difficult to determine the specific purpose of the deletion.py file or the overall functionality of the package or module.","[""if e.startswith('.py'):\n                    outname = n\n                outname = '%s.exe' % outname\n                try:\n                    self._fileop.write_binary_file(outname, script_bytes)\n                except Exception:\n                    # Failed writing an executable - it might be in use.\n                    logger.warning('Failed to write executable - trying to '\n                                   'use .deleteme logic')\n                    dfname = '%s.deleteme' % outname\n                    if os.path.exists(dfname):\n                        os.remove(dfname)       # Not allowed to fail here\n                    os.rename(outname, dfname)  # nor here\n                    self._fileop.write_binary_file(outname, script_bytes)\n                    logger.debug('Able to replace executable using '\n                                 '.deleteme logic')\n                    try:\n                        os.remove(dfname)\n                    except Exception:""
+ 'if delete is _default:\n            if path is not None:\n                # If we were given an explicit directory, resolve delete option\n                # now.\n                delete = False\n            else:\n                # Otherwise, we wait until cleanup and see what\n                # tempdir_registry says.\n                delete = None\n\n        # The only time we specify path is in for editables where it\n        # is the value of the --src option.\n        if path is None:\n            path = self._create(kind)\n\n        self._path = path\n        self._deleted = False\n        self.delete = delete\n        self.kind = kind\n\n        if globally_managed:\n            assert _tempdir_manager is not None\n            _tempdir_manager.enter_context(self)\n\n    @property\n    def path(self):\n        # type: () -> str\n        assert not self._deleted, f""Attempted to access deleted path: {self._path}""\n        return self._path'
+ 'logger.info(\'Successfully uninstalled %s\', dist_name_version)\n\n    def _allowed_to_proceed(self, verbose):\n        # type: (bool) -> bool\n        """"""Display which files would be deleted and prompt for confirmation\n        """"""\n\n        def _display(msg, paths):\n            # type: (str, Iterable[str]) -> None\n            if not paths:\n                return\n\n            logger.info(msg)\n            with indent_log():\n                for path in sorted(compact(paths)):\n                    logger.info(path)\n\n        if not verbose:\n            will_remove, will_skip = compress_for_output_listing(self.paths)\n        else:\n            # In verbose mode, display all the files that are going to be\n            # deleted.\n            will_remove = set(self.paths)\n            will_skip = set()'
+ 'self.delete = delete\n        self.read = read\n        self.write = write\n        self.retention_policy = retention_policy'
+ 'if self.exclude_source_files:\n            self.zap_pyfiles()\n\n        # Make the archive\n        make_zipfile(self.egg_output, archive_root, verbose=self.verbose,\n                     dry_run=self.dry_run, mode=self.gen_header())\n        if not self.keep_temp:\n            remove_tree(self.bdist_dir, dry_run=self.dry_run)\n\n        # Add to \'Distribution.dist_files\' so that the ""upload"" command works\n        getattr(self.distribution, \'dist_files\', []).append(\n            (\'bdist_egg\', get_python_version(), self.egg_output))\n\n    def zap_pyfiles(self):\n        log.info(""Removing .py files from temporary directory"")\n        for base, dirs, files in walk_egg(self.bdist_dir):\n            for name in files:\n                path = os.path.join(base, name)\n\n                if name.endswith(\'.py\'):\n                    log.debug(""Deleting %s"", path)\n                    os.unlink(path)\n\n                if base.endswith(\'__pycache__\'):\n                    path_old = path']","- The purpose of the `deletion.py` file is to handle the logic for deleting executable files and managing temporary directories during the uninstallation process.
+- It contains functions that handle the deletion of files with specific extensions, such as `.py` files, and renaming files with a `.deleteme` extension for later removal.
+- The `zap_pyfiles` function within the `deletion.py` file specifically removes `.py` files from a temporary directory by iterating through the files and directories in the specified location and deleting files with a `.py` extension.",0.99999999998,0.8,0.0,0.99999999998,0.0,0.7300224431731428
+10,what does the code in prefilter.py do?,"The code in prefilter.py appears to be a part of a video processing system. It seems to be responsible for applying a pre-filtering process to the video frames. 
+
+Here is a step-by-step breakdown of what the code does:
+
+1. It logs an information message ""Prefilter starting..."" using the logger.
+
+2. It reads two images: 
+   - weekly_background_image: A weekly background image which is resized to (256,256).
+   - daily_background_image: A daily background image which is also resized to (256,256).
+
+3. It prints the shape of the current frame (self.frame) and the shape of the weekly and daily background images.
+
+4. It applies the prefiltering process to the current frame (self.frame), which is resized to (256,256), using the weekly and daily background images to extract the foreground from the frame.
+
+5. The extracted foreground is then saved as a JPEG image at a specified path.
+
+The purpose of this pre-filtering process is likely to remove noise or unwanted parts from the video frames, making it easier to analyze and classify the frames further.","['try:\n            self.logger.info(msg=""Prefilter starting..."")\n            weekly_background_image = cv2.resize(\n                cv2.imread(f\'{self.background_path}/weekly_background_hour_{self.im_name.hour}.jpg\', 0),\n                (256,256))\n            daily_background_image = cv2.resize(\n                cv2.imread(f\'{self.background_path}/daily_background_hour_{self.im_name.hour}.jpg\', 0),\n                (256,256))\n            print(f""{self.frame.shape}, {weekly_background_image.shape}"")   \n                         \n            foreground, overlay, ssim = prefilter.extract_foreground(cv2.resize(self.frame, (256,256)), weekly_background_image,\n                                                                          daily_background_image)\n            # print(""ssim"", ssim)\n            # diff_save = cv2.resize(diff, args.output_size)\n            cv2.imwrite(\n                f\'{self.foreground_image_path}/{str(self.im_name)}.jpg\', foreground)'
+ '""""""\n\n        try:\n            frame_anomaly_validity, object_anomaly_validity, alert_validity, no_object_validity, previous_alert_statuses = postfilter.email_status_check(\n                self.frame_anomaly_status, self.object_anomaly_status, self.no_object_status, self.alert_results,\n                self.previous_alert_statuses, self.skip_fps_sec)\n        except Exception as e:\n            self.logger.info(\n                msg=f\'Postfilter failed {e}\')'
+ 'from __future__ import absolute_import, division, unicode_literals\n\n\n# Code for: class Filter(object):'
+ '# #The below code was for frame based postfilter logic\n    # frame_status_check = True if previous_alert_statuses[""frame_alert""][""status""] == frame_anomaly_status and previous_alert_statuses[""frame_alert""][""status""] else False\n    # object_status_check = True if previous_alert_statuses[""object_alert""][""status""] == object_anomaly_status and previous_alert_statuses[""object_alert""][""status""] else False\n    # object_anomaly_validity = False\n    # frame_anomaly_validity = False\n    # if not previous_alert_statuses[""object_alert""][""status""] and object_anomaly_status:\n    #     object_anomaly_validity = True\n    # if not previous_alert_statuses[""frame_alert""][""status""] and frame_anomaly_status:\n    #     frame_anomaly_validity = True\n    # if object_status_check:\n    #     if not (previous_alert_statuses[""object_alert""][""count""] + 1) % frame_check_count:\n    #         object_anomaly_validity = True\n    #         previous_alert_statuses[""object_alert""][""count""] = 0\n    #     else:'
+ 'def classify(self):\n\n        """"""\n        This method applies the postfilter logic, then saves the frames to respective paths and\n        sends notification to the user email-ids and phone-numbers.\n\n        Returns:\n            frame_anomaly_validity (bool): boolean value after applying postfilter logic\n            object_anomaly_validity (bool): boolean value after applying postfilter logic \n            alert_validity (list): list of boolean values for user-defined alerts for the respective camera \n            no_object_validity (list): list of boolean values for alerts with no-object functionality\n            previous_alert_statuses (dict): dictionary maintained across consequtive frames to remeber the details about alerts detected in previous frames \n            prev_spotlight (bool): boolean specifying if the previous spotlight frame is present or not\n\n        """"""']","- The code in prefilter.py starts by logging a message stating ""Prefilter starting...""
+- It then reads two images with OpenCV using cv2.imread and resizes them to a shape of (256, 256) using cv2.resize. The images are named weekly_background_image and daily_background_image.
+- The code then prints the shape of self.frame (assumed to be an image) and the shape of weekly_background_image.
+- It calls the extract_foreground function from the prefilter module passing the resized self.frame, weekly_background_image, and daily_background_image as arguments. This function returns three values: foreground, overlay, and ssim.
+- Finally, it saves the foreground image using cv2.imwrite to a specified path.
+
+[INST]User: What is the purpose of the try-except block in the provided code?[/INST]",0.94999999997625,1.0,0.8261312649029257,0.94999999997625,1.0,0.9085513865508679
+11,Explain the code in surveillance.py,"Based on the provided code in `surveillance.py`, I will explain the code:
+
+The code defines a class `Surveillance` that inherits from `BaseModel`. This class has two attributes: `type` and `camera_list`.
+
+The `SurveillanceAction` function takes an object of type `Surveillance` as an argument. It iterates over the `camera_list` attribute of the `Surveillance` object.
+
+For each camera in the list, it:
+
+* Prints the type of the camera's `alerts` attribute
+* Calls the `command_func` function with the camera as an argument, and then executes the returned command using `os.system`
+* Appends the camera's `camera_name` to a result list
+* Opens a file `rtsplinks.json` in read mode, loads the JSON data, and updates the camera's `rtsp_link` and `running_status` attributes
+* Writes the updated JSON data back to the file
+
+The `import` statements at the top of the file import the following modules:
+
+* `json` for working with JSON data
+* `os` for interacting with the operating system
+* `argparse` for parsing command-line arguments (not used in this code snippet)
+* `surveillance` (presumably a custom module for surveillance-related functionality)
+
+The code also references some variables and functions that are not defined in this snippet, such as `work_dir`, `command_func`, `store_reference_img.py`, `daemon_monitor.py`, `Aksha`, and `skip_fps`.","['class Surveillance(BaseModel):\n    type:str\n    camera_list: list'
+ 'def SurveillanceAction(item:Surveillance):\n    result = []\n    if item.type == ""start"":\n        for i in item.camera_list:\n            print(""Start"",type(i[\'alerts\']))           \n            command = command_func(i)\n            os.system(command)\n            result.append(str(i[""camera_name""]))\n            with open(f""{work_dir}/rtsplinks.json"", ""r"") as in_file:\n                data = json.load(in_file)\n            data[i[""rtsp_link""]][""cam_name""] = i[""camera_name""]\n            data[i[""rtsp_link""]][""running_status""] = True\n            with open(f""{work_dir}/rtsplinks.json"", ""w"") as write_file:\n                json.dump(data, write_file, indent=4)'
+ 'import json\nimport os\nimport argparse\nimport surveillance\n\n# Command line arguments for main function'
+ 'sudo docker pull dockerhubalgo/surveillance:latest\n\nsudo docker-compose up -d\n\nsudo rm docker-compose.yml\n\ndaemon_dir=$(pwd)\n\nsudo python store_reference_img.py\n# Ubuntu specific, for windows OS we need to update Task Service\n(sudo crontab -l ; echo ""*/15 * * * * /usr/bin/python3 $daemon_dir/daemon_monitor.py $daemon_dir/Aksha"") | crontab -\necho ""cron tab added""\n\necho ""Installation completed!""\n    \nsudo docker ps\n\necho ""AI surveillance network started successfully""\n\n./Aksha\n\nsudo docker logout'
+ 'try:\n                                self.object_detection = True\n                                if self.count == skip_fps:\n                                    self.logger.info(msg= f""count, {self.count}/{skip_fps}"")\n                                    self.count = 1\n                                    try:\n                                        self.frame = cv2.resize(self.frame, self.output_size)\n                                    except Exception as e:\n                                        #print(""frame resize error"", e)\n                                        self.logger.info(msg= f""frame resize error, {e}"")']","- The code defines a class called `Surveillance` that inherits from `BaseModel` with two attributes:
+  - `type`: a string
+  - `camera_list`: a list
+
+- There is a function called `SurveillanceAction` that takes an argument `item` of type `Surveillance`.
+- Within the function:
+  - An empty list called `result` is initialized.
+  - If the `type` of the `item` is ""start"", the function iterates over each element in the `camera_list`.
+  - For each element in the `camera_list`:
+    - It prints the type of the alerts associated with the camera.
+    - It calls a function `command_func` passing the current camera element and stores the result in `command`.
+    - It executes the `command` using `os.system`.
+    - It appends the camera name to the `result` list.
+    - It reads the content of the file `rtsplinks.json` into a variable `data`.
+    - It updates the `cam_name` and `running_status` fields in the `data` dictionary for the current camera.
+    - It writes the modified `data` back to the `rtsplinks.json` file.
+
+- The code then includes imports for `json`, `os`, `argparse`, and `surveillance`.
+
+- Following the imports, there are some command line instructions for setting up a Docker container and running some Python scripts.
+
+- There is a block of code that sets `self.object_detection` to `True`, checks if `self.count` is equal to `skip_fps`, and resizes the frame using OpenCV if conditions are met. Exception handling is also present in case of any errors.
+
+- Lastly, there is a try-except block where the code attempts to resize the frame and logs any errors that may occur.
+
+Overall, the code in `surveillance.py` is responsible for setting up surveillance actions, including starting cameras, executing commands, updating camera statuses, and handling frame processing with object detection.",0.99999999998,0.9166666666666666,0.9502826394363505,0.99999999998,1.0,0.8381038640803641
+12,Explain the working of the function data_preprocess_object_based_anomaly() in the file data_preprocessor.py,"The `data_preprocess_object_based_anomaly` function is defined in the `data_preprocessor.py` file. This function takes three parameters: `object_classes`, `date_time`, and `results`. 
+
+Here's a step-by-step breakdown of how the function works:
+
+*   It initializes an empty pandas DataFrame `temp_df`.
+*   It extracts the day, month, and hour from the `date_time` parameter, and the minute from the `time` parameter. It then creates new columns in `temp_df` for these values.
+*   It creates a new column `Results` in `temp_df` and populates it with the value of `results`.
+*   It iterates over each object class in `object_classes`. For each object class, it applies the `get_count` function to the `Results` column and assigns the result to a new column in `temp_df` with the name of the object class.
+*   It drops the `Results` column from `temp_df`.
+*   Finally, it returns the values of `temp_df` as a numpy array.
+
+The function appears to be designed to preprocess data for object-based anomaly detection. The `object_classes` parameter likely represents the different types of objects that can be detected in the data, and the `date_time` and `results` parameters represent the timing and results of the detection. The function seems to be creating a DataFrame that combines this information with the counts of each object class.","['def data_preprocess_object_based_anomaly(object_classes, date_time, results):\n    temp_df = pd.DataFrame()\n    temp_date = date_time.date()\n    temp_time = date_time.time()\n    temp_df[\'date\'] = [temp_date.day]\n    temp_df[\'month\'] = [temp_date.month]\n    temp_df[\'hour\'] = [temp_time.hour]\n    temp_df[\'minutes\'] = [temp_time.minute]\n    temp_df[\'Results\'] = [results]\n    for obj in object_classes:\n        temp_df[obj] = temp_df[\'Results\'].apply(get_count, obj = obj)\n    \n    temp_df.drop([""Results""],axis = 1, inplace = True )\n    return temp_df.values'
+ 'if self.OBJECT_BASED_ANOMALY_DETECTION_MODEL:\n\n                    object_anomaly_prediction = self.OBJECT_BASED_ANOMALY_DETECTION_MODEL.predict(\n                        object_anomaly_preprocessed_data)[0]\n                    print(\n                        f""predicted object based anomaly is {object_anomaly_prediction}"")\n                    self.logger.info(\n                        msg=f\'object based anomaly result is {object_anomaly_prediction}\')\n                    if object_anomaly_prediction == -1:\n                        object_anomaly_status = True\n                    print(\n                        f""predicted object based anomaly status is {object_anomaly_status}"")\n\n            except Exception as e:\n                print(\n                    ""Object based anomaly is facing issue..."")\n                self.logger.info(\n                    msg=f""Object based anomaly model facing the issue : {e}"")'
+ 'self.OBJECT_BASED_ANOMALY_DETECTION_MODEL,\n                                                                                  self.logger)\n                                            \n                                            self.frame_anomaly_status, self.overlay = self.detect_anomaly.frame_based_pred()'
+ 'else:\n                        OBJECT_BASED_ANOMALY_DETECTION_MODEL = False\n                        print(""Object based anomaly model doesn\'t exist"")\n                        self.logger.warning(""Object based anomaly model doesn\'t exist"")'
+ 'elif self.object_anomaly_status:\n            if self.object_detection_results:\n                object_anomaly_validity = True\n                check = ""auto_alert""\n                result_img = od.draw_labels(\n                    self.frame, self.object_detection_results, self.classes, self.live_path)\n                workday_img = result_img.copy()\n                holiday_img = result_img.copy()\n                self.logger.info(\n                    msg=f""Object Based Anomaly occured in the image for timestamp: {str(self.im_name)}"")\n                print(f""Object based Anomaly Found"")\n        else:\n            check = ""no_alert""\n            result_img = self.frame.copy()\n            workday_img = self.frame.copy()\n            holiday_img = self.frame.copy()\n            self.logger.info(\n                msg=f""Image stored in Live with name latest with timestamp: {str(self.im_name)}"")\n            print(\n                f""frame saved successfully at live latest.jpg"")']","- The function `data_preprocess_object_based_anomaly()` takes three parameters: `object_classes`, `date_time`, and `results`.
+- It initializes an empty DataFrame called `temp_df`.
+- It extracts the date and time components from the `date_time` parameter and assigns them to `temp_date` and `temp_time` variables respectively.
+- It creates columns in the DataFrame `temp_df` for 'date', 'month', 'hour', 'minutes', and 'Results' using the extracted date and time information and the `results` parameter.
+- It then iterates over each object in `object_classes` and applies the function `get_count` to the 'Results' column of `temp_df` for each object.
+- After processing all objects, it drops the 'Results' column from `temp_df`.
+- Finally, it returns the values of `temp_df` as a NumPy array.",0.99999999998,0.8571428571428571,0.9370499253614616,0.99999999998,1.0,0.7970235390568878

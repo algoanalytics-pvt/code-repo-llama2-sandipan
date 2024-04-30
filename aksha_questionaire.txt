@@ -1,17 +1,17 @@
 What are the data ingestion services?
 How many images are there in aksha-net?
-Which database is use in network?
-Where is shared volume stored?
-Which files are must while installing Aksha?
+Which database is used in the network?
+Where is shared volume of this repository stored?
+Which files are required while starting the Aksha service?
 Login credentials API is from which cloud base?
-Which services are active to get alerts?
-Explain folder structure of camera folder created after camera get active?
-Explain code flow of Aksha Pipeline?
-How camera get activated from Service api?
+Which services are responsible to generate alerts?
+What is the folder structure of folder camera, which is created after cameras are activated
+Explain code flow in Aksha Pipeline?
+How to activate the camera using Service api?
 How many api are there from AWS?
 How many apis are there in Node?
-Explain Mongodb schema?
-What is the purpose of the file deletion.py
-what does the code in prefilter.py do
+Explain Mongodb schema
+What is the purpose of the file deletion.py?
+what does the code in prefilter.py do?
 Explain the code in surveillance.py
 Explain the working of the function data_preprocess_object_based_anomaly() in the file data_preprocessor.py
